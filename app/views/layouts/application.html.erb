@@ -2,13 +2,18 @@
 <html>
 <head>
   <title>Caddev</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%#= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "pages", :media => "screen, projection" %>
+  <%= stylesheet_link_tag    "blueprint/screen", :media => "screen, projection" %>
+  <%= stylesheet_link_tag    "blueprint/print", :media => "print" %>
+  
+  <!--[if lt IE 8]><%= stylesheet_link_tag    "blueprint/ie", :media => "screen, projection" %>
+  <%= javascript_include_tag "application" %><![endif]-->
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+	<div class="container">
 <%= yield %>
-
+	</div>
 </body>
 </html>

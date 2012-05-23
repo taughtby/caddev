@@ -1,0 +1,25 @@
+
+#home{
+	
+	position:absolute;
+	margin-top: 25% ;
+
+
+}
+
+li{
+	list-style-type: none;
+	display:inline;
+	float: left;
+}
+li a{	
+	text-decoration: none;
+}
+html {
+
+	background-image:url('/assets/fry.jpeg');
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-position:left;
+
+}
