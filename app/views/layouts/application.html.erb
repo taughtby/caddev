@@ -3,17 +3,17 @@
 <head>
   <title>Caddev</title>
   <%#= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag    "pages", :media => "screen, projection" %>
+
   <%= stylesheet_link_tag    "blueprint/screen", :media => "screen, projection" %>
   <%= stylesheet_link_tag    "blueprint/print", :media => "print" %>
-  
   <!--[if lt IE 8]><%= stylesheet_link_tag    "blueprint/ie", :media => "screen, projection" %>
   <%= javascript_include_tag "application" %><![endif]-->
+  <%= stylesheet_link_tag "pages", :media => "screen, projection" %> 
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<div class="container">
-<%= yield %>
+    <%= yield %>
 	</div>
 </body>
 </html>

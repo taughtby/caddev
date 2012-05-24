@@ -3,23 +3,26 @@
 	
 	position:absolute;
 	margin-top: 25% ;
-
-
 }
-
+#home h1{
+	font-size: 5em;
+}
 li{
 	list-style-type: none;
 	display:inline;
 	float: left;
+	margin-left:12px;
 }
+
 li a{	
 	text-decoration: none;
 }
-html {
 
-	background-image:url('/assets/fry.jpeg');
-	background-repeat:no-repeat;
-	background-attachment:fixed;
-	background-position:left;
+body {
+	background: url(/assets/fry.jpeg) no-repeat left fixed;
+}
 
+#navbar a {
+	font-size: 2em;
+	color: black;
 }
