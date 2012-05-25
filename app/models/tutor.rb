@@ -1,8 +1,7 @@
 class Tutor < ActiveRecord::Base
   attr_accessible :account_id, :calendar_id, :user_id
   
-  has_one :user, :account, :calendar
-  has_one :contact, :through => :users
+  belongs_to :user
   has_many :study_groups
-  has_many :students, :through => :study_groups
+  has_many :students, :through => :study_group_registrations
 end

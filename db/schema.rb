@@ -11,43 +11,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120521005506) do
+ActiveRecord::Schema.define(:version => 20120525040030) do
 
-  create_table "contacts", :force => true do |t|
-    t.string   "name"
-    t.string   "address"
-    t.string   "email"
+  create_table "students", :force => true do |t|
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "students", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "account_id"
-    t.integer  "calendar_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+  create_table "study_group_registrations", :force => true do |t|
+    t.integer  "study_group_id"
+    t.integer  "student_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "study_groups", :force => true do |t|
     t.integer  "tutor_id"
+    t.integer  "subject_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "subjects", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "tutors", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "account_id"
-    t.integer  "calendar_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.string   "password"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "address"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end
