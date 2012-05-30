@@ -1,0 +1,10 @@
+<h2>Edit Your Profile</h2>
+
+<%=form_for @tutor do |f|%>
+	<%=@tutor.name%>
+	
+	<%=f.label :profile%>
+	<%=f.text_area :profile%>
+	<%=f.submit%>
+
+<%end%>

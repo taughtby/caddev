@@ -3,6 +3,9 @@ Caddev::Application.routes.draw do
   get "signout" => 'sessions#destroy', :as => :sign_out
   post "sessions/create"
 
+  resources :subjects
+  resources :tutors
+
     resources :users
   
   root to: 'pages#home'
