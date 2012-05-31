@@ -77,6 +77,13 @@ all_passwords = "hockey"
                     )
   
   tutor = Tutor.create( :user_id => user.id )
+  #tutor.welcome_text = "lorum.."
+  #10.times do |j|
+  #  faq = FAQ.create( :tutor_id => tutor.id, :question => "lorum", :answer => "lorin")
+  #end
+  #tutor.faqs.each do |faq|
+  #  faq.tutor_id
+  #end
   student = Student.create( :user_id => user.id )
 end
 
