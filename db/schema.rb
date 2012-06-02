@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530201335) do
+ActiveRecord::Schema.define(:version => 20120602185308) do
+
+  create_table "contacts", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "faqs", :force => true do |t|
+    t.integer  "tutor_id"
+    t.text     "question"
+    t.text     "answer"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "major_subject_areas", :force => true do |t|
     t.string   "name"
@@ -48,18 +64,21 @@ ActiveRecord::Schema.define(:version => 20120530201335) do
 
   create_table "tutors", :force => true do |t|
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.text     "profile"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.text     "tutor_welcome"
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.string   "address"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
   end
 
 end

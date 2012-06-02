@@ -72,12 +72,15 @@ all_passwords = "hockey"
 50.times do |i|
   user = User.create( :name     => Faker::Name.name, 
                       :email    => Faker::Internet.email, 
-                      :address  => Faker::Address.street_address + ", " + Faker::Address.city+ ", " + Faker::Address.us_state_abbr,
+                      :street   => Faker::Address.street_address,
+                      :city     => Faker::Address.city,
+                      :state    => Faker::Address.us_state_abbr,
+                      :zip      => Faker::Address.zip_code,
                       :password =>  all_passwords 
                     )
   
   tutor = Tutor.create( :user_id => user.id )
-  #tutor.welcome_text = "lorum.."
+  tutor.tutor_welcome = "lorum.."
   #10.times do |j|
   #  faq = FAQ.create( :tutor_id => tutor.id, :question => "lorum", :answer => "lorin")
   #end
@@ -113,7 +116,7 @@ puts "------------ BEGIN Study-Groups -----------"
   
   puts "---------------- Study-Group ------------------"
   puts "study area : #{subject.name}"
-  puts "tutor      : #{tutor.name} of #{tutor.address}"
+  puts "tutor      : #{tutor.user.name}, #{tutor.user.street}, #{tutor.user.city}, #{tutor.user.state}, #{tutor.user.zip} "
   puts "students   :"
   if sg.students.count > 0 
     sg.students.each do |s|
@@ -132,3 +135,4 @@ puts "\t #{StudyGroup.count} study groups"
 puts "\t #{MajorSubjectArea.count} major areas"
 puts "\t #{Subject.count} subjects"
 puts "=============== DONE  =================="
+
