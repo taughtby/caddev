@@ -127,7 +127,7 @@ puts "------------ BEGIN Study-Groups -----------"
   end
 end
 
-stars = {0 : "terrible", 1 : "not great", 2: "so-so", 3 : "not bad", 4 : "pretty good", 5 : "awesome"}
+stars = {0 => "terrible", 1 => "not great", 2 => "so-so", 3 => "not bad", 4 => "pretty good", 5 => "awesome"}
 
 puts "=============== REVIEWS  =================="
 Tutor.all.each do |tutor|
