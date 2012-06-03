@@ -1,10 +1,10 @@
 <header>
 	<h1>Guitar Lessons for Beginners</h1>
-	<p>taughtBy <%=@tutor.name%></p>
+	<p>taughtBy <%= @tutor.user.name %></p>
 
 	<div class="contact">
 		<p class="btn">Contact Me!</p>
-		<p><%= render :partial => 'users/contact_info', :locals => {:user => @tutor} %></p>
+		<p><%= render :partial => 'users/contact_info', :locals => {:user => @tutor.user} %></p>
 	</div>
 
 </header>

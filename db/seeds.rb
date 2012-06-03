@@ -43,10 +43,15 @@ puts "----------- Clean StudyGroups -------------"
 puts "before StudyGroup.destroy_all"
 puts "\t #{StudyGroup.count} major areas"
 puts "\t #{StudyGroupRegistration.count} registrations"
+puts "\t #{StudyGroupPost.count} posts"
+puts "\t #{StudyGroupComment.count} comments"
 StudyGroup.destroy_all
 puts "after StudyGroup.destroy_all"
 puts "\t #{StudyGroup.count} study groups"
 puts "\t #{StudyGroupRegistration.count} registrations "
+puts "\t #{StudyGroupPost.count} posts"
+puts "\t #{StudyGroupComment.count} comments"
+
 
 
 
@@ -70,7 +75,11 @@ students_per_class = [0,1,2,5,10]
 all_passwords = "hockey"
 # create users (which are both a tutor and a student)
 50.times do |i|
-  user = User.create( :name     => Faker::Name.name, 
+  nm = Faker::Name.name
+  while User.find_by_name( nm )
+    nm = Faker::Name.name
+  end
+  user = User.create( :name     => nm, 
                       :email    => Faker::Internet.email, 
                       :street   => Faker::Address.street_address,
                       :city     => Faker::Address.city,
@@ -82,11 +91,9 @@ all_passwords = "hockey"
   tutor = Tutor.create( :user_id => user.id )
   tutor.tutor_welcome = "Donec in enim ante, id tempor justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse facilisis pellentesque varius. Praesent rutrum, elit sit amet suscipit fermentum, lacus libero commodo massa, nec fringilla purus diam eget metus. Mauris quam lacus, ultrices eget bibendum eget, scelerisque id odio.
   Nulla facilisi. Quisque dolor lacus, lobortis a scelerisque sit amet, fringilla et diam. Aliquam malesuada ligula sed quam gravida et volutpat sapien posuere. Duis egestas lobortis velit, eu feugiat leo tempor vel. In hac habitasse platea dictumst. Nam lacus lectus, tempor at elementum nec, vehicula eget neque. Aliquam in odio nulla."
-  10.times do |j|
-  faq = FAQ.create( :tutor_id => tutor.id, 
-                    :question => "lorum", 
-                    :answer => "lorin")
-  end
+  #10.times do |j|
+  #  faq = FAQ.create( :tutor_id => tutor.id, :question => "lorum", :answer => "lorin")
+  #end
   #tutor.faqs.each do |faq|
   #  faq.tutor_id
   #end
@@ -103,14 +110,18 @@ puts "------------ BEGIN Study-Groups -----------"
   subject = Subject.order("RANDOM()").first
   
   sg = StudyGroup.create( :tutor_id => tutor.id, :subject_id => subject.id )
+  sg.student_limit = 1+Random.rand(10)
+  sg.cost_per_hour = 1+Random.rand(50)
+  sg.syllabus = "The syllabus..."
+  sg.save
   
   # randomly pick student for class, take first one of array
-  n_students = students_per_class.sample(1)[0]
+  n_students = Random.rand(sg.student_limit)
   
   # add students to class
   n_students.times do |j|
     student = Student.order("RANDOM()").first
-    while student.id == tutor.id && !StudyGroupRegistration.find_by_student_id( student.id)
+    while student.id == tutor.id && StudyGroupRegistration.find_by_student_id( student.id)
       student = Student.order("RANDOM()").first
     end
     # create a registration for this student in this study group
@@ -157,13 +168,50 @@ Tutor.all.each do |tutor|
   end
 end
 
+puts "========== StudyGroup Posts  =============="
+StudyGroup.all.each do |sg|
+  if sg.students.count > 0
+    StudyGroupPost.create( :body=>"Welcome to the class.  Check out the syllabus to see what to expect", 
+                           :study_group_id => sg.id, :title => "Welcome", :user_id => sg.tutor.user.id )
+                           
+    10.times do |post_id|
+      # most posts by tutor (75%)
+      if Random.rand() < 0.75
+        sgp = StudyGroupPost.create( :body=>"New material for this week.", 
+                               :study_group_id => sg.id, :title => "Guys, check out the new stuff.", :user_id => sg.tutor.user.id )
+      
+        if Random.rand() < 0.5
+          # body, :comment_id, :study_group_post_id, :user_id
+          cmt = StudyGroupComment.create( :user_id => sg.tutor.user.id, :study_group_post_id => sgp.id, :comment_id => nil, :body => "Whoops, forgot to mention this bit...")
+        else
+          cmt = StudyGroupComment.create( :user_id => sg.students.order("RANDOM()").first.user.id, :study_group_post_id => sgp.id, :comment_id => nil, :body => "Looking forward to it!")
+        end
+      else
+        poster = sg.students.order("RANDOM()").first
+        sgp = StudyGroupPost.create( :body=>"I'm having trouble with this week's material, anybody else?", 
+                               :study_group_id => sg.id, :title => "Having trouble", :user_id => poster.user.id )
+                               
+        
+        if Random.rand() < 0.5
+          # body, :comment_id, :study_group_post_id, :user_id
+          cmt = StudyGroupComment.create( :user_id => sg.tutor.user.id, :study_group_post_id => sgp.id, :comment_id => nil, :body => "We'll spend more time on this next class.  In the meantime, here is some info.")
+        else
+          cmt = StudyGroupComment.create( :user_id => sg.students.order("RANDOM()").first.user.id, :study_group_post_id => sgp.id, :comment_id => nil, :body => "Yeah, I did.  Hope we go over that in class.")
+        end
+        
+      end
+    end
+  end
+end
 
 puts "=============== SUMMARY  =================="
 puts "after seeding"
+puts "\t #{MajorSubjectArea.count} major areas"
+puts "\t #{Subject.count} subjects"
 puts "\t #{User.count} users"
 puts "\t #{Tutor.count} tutors"
 puts "\t #{Student.count} students"
 puts "\t #{StudyGroup.count} study groups"
-puts "\t #{MajorSubjectArea.count} major areas"
-puts "\t #{Subject.count} subjects"
+puts "\t #{StudyGroupPost.count} posts"
+puts "\t #{StudyGroupComment.count} comments"
 puts "=============== DONE  =================="
