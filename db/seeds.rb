@@ -126,6 +126,20 @@ puts "------------ BEGIN Study-Groups -----------"
     puts "           : still waiting for students..."
   end
 end
+
+stars = {0 : "terrible", 1 : "not great", 2: "so-so", 3 : "not bad", 4 : "pretty good", 5 : "awesome"}
+
+puts "=============== REVIEWS  =================="
+Tutor.all.each do |tutor|
+  if tutor.students.count > 0
+    # get a tutor score between 1 and 4
+    tutor_score = 1+Random.rand(5)
+    
+     
+  end
+end
+
+
 puts "=============== SUMMARY  =================="
 puts "after seeding"
 puts "\t #{User.count} users"
