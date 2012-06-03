@@ -1,2 +1,2 @@
-<%=user.user.street%>, <%=user.user.city%>, <%=user.user.state%>, <%=user.user.zip%><br/>
-<%=user.user.email%> 
+<%=user.street%>, <%=user.city%>, <%=user.state%>, <%=user.zip%><br/>
+<%=user.email%> 
