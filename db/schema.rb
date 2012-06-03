@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120602185308) do
-
-  create_table "contacts", :force => true do |t|
-    t.string   "name"
-    t.string   "address"
-    t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120603185148) do
 
   create_table "faqs", :force => true do |t|
     t.integer  "tutor_id"
@@ -41,6 +33,24 @@ ActiveRecord::Schema.define(:version => 20120602185308) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "study_group_comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "study_group_id"
+    t.integer  "comment_id"
+    t.text     "body"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "study_group_posts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "study_group_id"
+    t.text     "title"
+    t.text     "body"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "study_group_registrations", :force => true do |t|
     t.integer  "study_group_id"
     t.integer  "student_id"
@@ -60,6 +70,30 @@ ActiveRecord::Schema.define(:version => 20120602185308) do
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
     t.integer  "major_subject_area_id"
+  end
+
+  create_table "tutor_materials", :force => true do |t|
+    t.integer  "tutor_id"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "tutor_review_replies", :force => true do |t|
+    t.integer  "tutor_review_id"
+    t.integer  "tutor_id"
+    t.text     "explanation_text"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "tutor_reviews", :force => true do |t|
+    t.integer  "student_id"
+    t.integer  "stars"
+    t.text     "review_text"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "tutor_id"
   end
 
   create_table "tutors", :force => true do |t|

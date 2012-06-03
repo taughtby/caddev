@@ -7,7 +7,7 @@ class Student < ActiveRecord::Base
   has_many :study_group_registrations, :dependent => :destroy
   has_many :tutors, :through => :study_groups
   has_many :subjects, :through => :study_groups
-  
+  has_many :tutor_reviews
   
   def name
     return self.user.name
