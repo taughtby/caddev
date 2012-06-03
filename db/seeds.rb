@@ -89,7 +89,8 @@ all_passwords = "hockey"
                     )
   
   tutor = Tutor.create( :user_id => user.id )
-  tutor.tutor_welcome = "lorum.."
+  tutor.tutor_welcome = "Donec in enim ante, id tempor justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse facilisis pellentesque varius. Praesent rutrum, elit sit amet suscipit fermentum, lacus libero commodo massa, nec fringilla purus diam eget metus. Mauris quam lacus, ultrices eget bibendum eget, scelerisque id odio.
+  Nulla facilisi. Quisque dolor lacus, lobortis a scelerisque sit amet, fringilla et diam. Aliquam malesuada ligula sed quam gravida et volutpat sapien posuere. Duis egestas lobortis velit, eu feugiat leo tempor vel. In hac habitasse platea dictumst. Nam lacus lectus, tempor at elementum nec, vehicula eget neque. Aliquam in odio nulla."
   #10.times do |j|
   #  faq = FAQ.create( :tutor_id => tutor.id, :question => "lorum", :answer => "lorin")
   #end
@@ -214,4 +215,3 @@ puts "\t #{StudyGroup.count} study groups"
 puts "\t #{StudyGroupPost.count} posts"
 puts "\t #{StudyGroupComment.count} comments"
 puts "=============== DONE  =================="
-

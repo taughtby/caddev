@@ -1,0 +1,33 @@
+<header>
+	<h1>Guitar Lessons for Beginners</h1>
+	<p>taughtBy <%=@tutor.name%></p>
+
+	<div class="contact">
+		<p class="btn">Contact Me!</p>
+		<p><%= render :partial => 'users/contact_info', :locals => {:user => @tutor} %></p>
+	</div>
+
+</header>
+
+<div class="tutor_nav">
+	<ul>
+	<li class="btn">Profile</li>
+	<li class="btn">Classes</li>
+	<li class="btn">Review</li>
+	<li class="btn">Community</li>
+	</ul>
+</div>
+
+<div class="profile">
+	<h3>Profile</h3>
+	<p><%=@tutor.tutor_welcome%></p>
+</div>
+
+<div class="verification">
+	<p>Verification</p>
+	<ul>
+		<li>Address</li>
+		<li>Qualifications</li>
+		<li>DOJ Check</li>
+	</ul>
+</div>

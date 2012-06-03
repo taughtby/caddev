@@ -1,6 +1,7 @@
 
 
 <%@tutors.each do |tutor|%>
-	<p><%=tutor.name%> - <%=tutor.profile%></p>
+	<p><%= link_to tutor.name, tutor_url(tutor)%><br/><%= truncate(tutor.tutor_welcome, :length => 160) %><br/>
+		-<%=tutor.user.city%></p>
 	
 <%end%>
