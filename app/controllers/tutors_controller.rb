@@ -2,6 +2,7 @@ class TutorsController < ApplicationController
 	
 	def index
 		@tutors = Tutor.all
+		@subjects = MajorSubjectArea.all
 	end
 
 	def edit

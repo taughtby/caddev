@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(:version => 20120603202339) do
 
+  create_table "contacts", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "faqs", :force => true do |t|
     t.integer  "tutor_id"
     t.text     "question"
