@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120603185148) do
+ActiveRecord::Schema.define(:version => 20120603202339) do
 
   create_table "faqs", :force => true do |t|
     t.integer  "tutor_id"
@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(:version => 20120603185148) do
 
   create_table "study_group_comments", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "study_group_id"
+    t.integer  "study_group_post_id"
     t.integer  "comment_id"
     t.text     "body"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "study_group_posts", :force => true do |t|
@@ -61,8 +61,11 @@ ActiveRecord::Schema.define(:version => 20120603185148) do
   create_table "study_groups", :force => true do |t|
     t.integer  "tutor_id"
     t.integer  "subject_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "student_limit"
+    t.integer  "cost_per_hour"
+    t.text     "syllabus"
   end
 
   create_table "subjects", :force => true do |t|
