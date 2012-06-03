@@ -3,7 +3,10 @@ class Tutor < ActiveRecord::Base
   
   belongs_to :user
   has_many :study_groups, :dependent => :destroy
-  has_many :students, :through => :study_group_registrations
+  has_many :students, :through => :study_groups
+  has_many :tutor_reviews
+  has_many :tutor_review_replies
+  has_many :tutor_materials
   
   def name
     return self.user.name
