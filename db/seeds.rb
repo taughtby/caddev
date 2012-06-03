@@ -107,7 +107,7 @@ puts "------------ BEGIN Study-Groups -----------"
   # add students to class
   n_students.times do |j|
     student = Student.order("RANDOM()").first
-    while student.id == tutor.id
+    while student.id == tutor.id && !StudyGroupRegistration.find_by_student_id( student.id)
       student = Student.order("RANDOM()").first
     end
     # create a registration for this student in this study group
@@ -127,7 +127,13 @@ puts "------------ BEGIN Study-Groups -----------"
   end
 end
 
-stars = {0 => "terrible", 1 => "not great", 2 => "so-so", 3 => "not bad", 4 => "pretty good", 5 => "awesome"}
+stars = {
+  0 => "This guy is terrible. Avoid at all cost!", 
+  1 => "I have to say, this tutor isn't great.", 
+  2 => "This tutor was so-so, lots of improvement needed.", 
+  3 => "Pretty good, this fellow.", 
+  4 => "This guy is darn good.", 
+  5 => "I can't say enough about this guy, he is awesome!"}
 
 puts "=============== REVIEWS  =================="
 Tutor.all.each do |tutor|
@@ -135,7 +141,16 @@ Tutor.all.each do |tutor|
     # get a tutor score between 1 and 4
     tutor_score = 1+Random.rand(5)
     
-     
+    tutor.students.each do |student|
+      if Random.rand() < 0.5
+        review = TutorReview.create( :tutor_id => tutor.id, :student_id => student.id, :stars => tutor_score, :review_text => stars[tutor_score])
+        if tutor_score == 0
+          review_reply = TutorReviewReply.create( :tutor_review_id => review.id, :tutor_id => tutor.id, :explanation_text => "Well, this student was equally bad!")
+        elsif tutor_score == 5
+          review_reply = TutorReviewReply.create( :tutor_review_id => review.id, :tutor_id => tutor.id, :explanation_text => "Cheers! It was a pleasure teaching you.")
+        end
+      end
+    end 
   end
 end
 
