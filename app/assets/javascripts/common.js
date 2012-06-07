@@ -13,7 +13,7 @@ $(function() {
   };
   $('#search-input').soulmate({
     url: '/sm/search',
-    types: ['category'],
+    types: ['subject'],
     renderCallback: render,
     selectCallback: select,
     minQueryLength: 2,

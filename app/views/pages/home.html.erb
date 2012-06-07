@@ -13,17 +13,14 @@
 	</div>
 	
 		<h1 class="prepend-1">Learn Something</h1>
-		
-	  <form class="navbar-search">
-      <input id='search-input' type="text" class="search-query" name='q' value='' autocomplete='off' placeholder="search categories">
-    </form>
     
 	<blockquote class="prepend-1">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."-Stephen Fry</blockquote>
 
-	<form class="prepend-3">
-		<label>I want to learn...</label><br/><input class= "span-7" type ="text"><br/></br>
+<%= form_tag tutors_url, :method => 'get', :class => "prepend-3" do %>
+		<label>I want to learn...</label><br/>
+		<input id='search-input' type="text" class="span-7 search-query" name='subject' value='' autocomplete='off' placeholder="a subject...">
+
+		<br/></br>
 		<label>near...</label><br/><input class ="span-7" type = "text" ><br/><br/>
 		<span class="prepend-5"><input type = "submit", value = "Submit"></span>
-	</form>
-
-</div>
+<% end %>

@@ -11,13 +11,26 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :name, 'Name' %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :address, 'Address' %><br />
-    <%= f.text_field :address %>
+    <%= f.label :street, 'Street address' %><br />
+    <%= f.text_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label :state, 'State' %><br />
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :city, 'city' %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :zip, 'zip' %><br />
+    <%= f.text_field :zip %>
   </div>
 	  <div class="field">
 	    <%= f.label :email, 'Email' %><br />

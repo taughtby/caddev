@@ -1,8 +1,8 @@
 
 <nav>
 	<ul>
-		<%@subjects.each do |subject|%>
-		<li><a href="#"><%=subject.name.capitalize%></a></li>
+		<% @subjects.each do |subject| %>
+		  <li><% link_to subject.name.capitalize, subjects_url(subject) %></a></li>
 		<%end%>
 		<li><a href="#">Edit</a></li>
 		<li><a href="#">View</a></li>
@@ -10,8 +10,8 @@
 		
 	</ul>
 </nav>
-<%@tutors.each do |tutor|%>
-	<p><%= link_to tutor.name, tutor_url(tutor)%><br/><%= truncate(tutor.tutor_welcome, :length => 160) %><br/>
-		-<%=tutor.user.city%></p>
-	
+<% @tutors.each do |tutor| %>
+	<h2><%= link_to tutor.name, tutor_url(tutor) %></h2>
+	<h4><%= tutor.user.city %></h4>
+	<p><%= truncate(tutor.tutor_welcome, :length => 160) %><p>
 <%end%>
