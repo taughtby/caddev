@@ -9,6 +9,7 @@ gem 'rails', '3.2.3'
 group :development do
   gem 'quiet_assets'
   gem 'sqlite3'
+  gem 'thin'
 end
 
 group :production do
@@ -32,7 +33,8 @@ gem 'jquery-rails'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'faker'
-
+gem 'rack-contrib'
+gem 'soulmate', :require => 'soulmate/server'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

@@ -1,4 +1,6 @@
 Caddev::Application.routes.draw do
+  mount Soulmate::Server, :at => "/sm"
+  
   get "sessions/new", :as => :sign_in
   get "signout" => 'sessions#destroy', :as => :sign_out
   post "sessions/create"
