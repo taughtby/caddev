@@ -12,4 +12,5 @@
  *= require ./blueprint/screen
  *= require common
  *= require soulmate
+ *= require google_map
 */
