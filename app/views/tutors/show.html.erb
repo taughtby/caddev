@@ -6,36 +6,26 @@
 		<p class="btn">Contact Me!</p>
 		<p><%= render :partial => 'users/contact_info', :locals => {:user => @tutor.user} %></p>
 	</div>
-
 </header>
 
 <div class="tutor_nav">
 	<ul>
-	<li class="btn">Profile</li>
-	<li class="btn">Classes</li>
-	<li class="btn">Review</li>
-	<li class="btn">Community</li>
+	  <li class="btn">Profile</li>
+  	<li class="btn">Classes</li>
+  	<li class="btn">Review</li>
+  	<li class="btn">Community</li>
 	</ul>
 </div>
 
 <div class="profile">
 	<h3>Profile</h3>
-	<p><%=@tutor.tutor_welcome%></p>
+	<p><%= @tutor.tutor_welcome %></p>
 </div>
-
-<div class="verification">
-	<h3>Verification</h3>
-	<ul>
-		<li>Address</li>
-		<li>Qualifications</li>
-		<li>DOJ Check</li>
-	</ul>
-</div><br/>
 
 <div class="student-list">
 	<h3>Students</h3>
 	<ul>
-	<%@tutor.students.each do |student|%>
+	<% @tutor.students.each do |student| %>
 
 		<li><%=student.name%></li>
 	<%end%>
@@ -46,24 +36,24 @@
 <p class ="btn">Facebook</p>
 
 <div class = "faq">
-<h3>Questions & Answers</h3>
-<ul>
-	<%@tutor.faqs.each do |faq|%>
-		<li>Q: <%= faq.question%></li>
-		<li>A: <%= faq.answer%></li>
+  <h3>Questions & Answers</h3>
+  <ul>
+  	<% @tutor.faqs.each do |faq|%>
+  		<li>Q: <%= faq.question%></li>
+  		<li>A: <%= faq.answer%></li>
 
-	<%end%>
-</ul>
+  	<%end%>
+  </ul>
 </div>
 
 <div class ="reviews">
-<h3>Reviews</h3>
-<ul>
-	<%@tutor.tutor_reviews.each do |review|%>
-		<li><%= review.review_text %></li>		
-		<li>Posted by <%= review.student.user.name %></li>		
-		<li><%= review.created_at %></li>		
+  <h3>Reviews</h3>
+  <ul>
+  	<% @tutor.tutor_reviews.each do |review| %>
+  		<li><%= review.review_text %></li>		
+  		<li>Posted by <%= review.student.user.name %></li>		
+  		<li><%= review.created_at %></li>		
 
-	<%end%>
-</ul>
+  	<%end%>
+  </ul>
 </div>

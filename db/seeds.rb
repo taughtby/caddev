@@ -71,20 +71,21 @@ subjects.each do |k,v|
 end
 
 puts "------- Users, tutors, and students -------"
-students_per_class = [0,1,2,5,10]
+students_per_class = [1,2,5,10,20]
 all_passwords = "hockey"
 # create users (which are both a tutor and a student)
-50.times do |i|
+500.times do |i|
   nm = Faker::Name.name
   while User.find_by_name( nm )
     nm = Faker::Name.name
   end
+  zipcode = Zipcode.order("RANDOM()").first
   user = User.create( :name     => nm, 
-                      :email    => Faker::Internet.email, 
+                      :email    => nm.split(" ")[0].downcase+"@example.com", 
                       :street   => Faker::Address.street_address,
-                      :city     => Faker::Address.city,
-                      :state    => Faker::Address.us_state_abbr,
-                      :zip      => Faker::Address.zip_code,
+                      :city     => zipcode.city,
+                      :state    => zipcode.state,
+                      :zip      => zipcode.code,
                       :password =>  all_passwords 
                     )
   
@@ -105,7 +106,7 @@ end
 
 
 puts "------------ BEGIN Study-Groups -----------"
-10.times do |i|
+300.times do |i|
   # pick a tutor at random
   tutor = Tutor.order("RANDOM()").first
   
@@ -119,7 +120,7 @@ puts "------------ BEGIN Study-Groups -----------"
   sg.save
   
   # randomly pick student for class, take first one of array
-  n_students = Random.rand(sg.student_limit)
+  n_students = 1+Random.rand(sg.student_limit)
   
   # add students to class
   n_students.times do |j|
