@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require ./blueprint/screen
- *= require common
- *= require soulmate
  *= require google_map
+ *= require common
 */

@@ -8,15 +8,14 @@ $(function() {
   select = function(term, data, type) {
     $('#search-input').val(term);
     $('#search-input').click();
-    // window.location.href = "/categories" + ""
     return console.log("Selected " + term);
   };
-  $('#search-input').soulmate({
-    url: '/sm/search',
-    types: ['subject'],
-    renderCallback: render,
-    selectCallback: select,
-    minQueryLength: 2,
-    maxResults: 5
-  });
+  // $('#search-input').soulmate({
+  //     url: '/sm/search',
+  //     types: ['subject'],
+  //     renderCallback: render,
+  //     selectCallback: select,
+  //     minQueryLength: 2,
+  //     maxResults: 5
+  //   });
 });

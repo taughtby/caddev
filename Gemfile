@@ -34,8 +34,8 @@ gem 'bourbon'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'faker'
-gem 'rack-contrib'
-gem 'soulmate', :require => 'soulmate/server'
+#gem 'rack-contrib'
+#gem 'soulmate', :require => 'soulmate/server'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
