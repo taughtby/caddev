@@ -31,6 +31,7 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
+    bootstrap-sass (2.0.3.1)
     bourbon (2.1.0)
       sass (>= 3.1)
     builder (3.0.0)
@@ -122,6 +123,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
+  bootstrap-sass
   bourbon
   coffee-rails (~> 3.2.1)
   faker

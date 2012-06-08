@@ -3,8 +3,8 @@
 <% if flash[:notice] %>
 	<h3 class="prepend-1"><%= flash[:notice] %></h1>
 <% end %>
-<div id="home" class = "span-13 push-12">
-	<div id="navbar" class="prepend-1">
+<div id="home" class = "span12">
+	<div id="navbar" class="">
 		<ul>
 			<li><a href = "#"> TEACHERS</a></li>
 			<li><a href = "#"> STUDENTS</a></li>
@@ -19,9 +19,9 @@
 
 <%= form_tag tutors_url, :method => 'get', :class => "prepend-3" do %>
 		<label>I want to learn...</label><br/>
-		<input id='search-input' type="text" class="span-7 search-query" name='subject' value='' autocomplete='off' placeholder="a subject...">
+		<input id='search-input' type="text" class="span7 search-query" name='subject' value='' autocomplete='off' placeholder="a subject...">
 
 		<br/></br>
-		<label>near...</label><br/><input class ="span-7" type = "text" ><br/><br/>
-		<span class="prepend-5"><input type = "submit", value = "Submit"></span>
+		<label>near...</label><br/><input class ="span7" type = "text" ><br/><br/>
+		<span class="prepend5"><input type = "submit", value = "Submit"></span>
 <% end %>
