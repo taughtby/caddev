@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120607044620) do
+ActiveRecord::Schema.define(:version => 20120609151726) do
+
+  create_table "distances", :force => true do |t|
+    t.string   "row_zip"
+    t.string   "col_zip"
+    t.float    "kms"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "faqs", :force => true do |t|
     t.integer  "tutor_id"
@@ -124,6 +132,11 @@ ActiveRecord::Schema.define(:version => 20120607044620) do
     t.string   "state"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+<<<<<<< HEAD
+    t.float    "latitude"
+    t.float    "longitude"
+=======
+>>>>>>> 9e01258a2d60745c2d505c6645cfe3a7d00ce582
   end
 
 end

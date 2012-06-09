@@ -32,6 +32,7 @@
 <!-- Start of Left Side Bar>
 <!-- <aside></aside> -->
 
+
 			<div class="tabbable tabs-left">
 			  <ul class="nav nav-tabs" id="myTab">
 			    <li><a href="#lA" data-toggle="tab">Profile</a></li>
@@ -41,31 +42,33 @@
 			    <li><a href="#lE" data-toggle="tab">Current Students</a></li>
 			  </ul>
 
-			  <div class="tab-content">
-			    <div class="tab-pane" id="lA">
-			      <div class="profile">
-				      <h3>Welcome</h3>
-			      	<p><%= @tutor.tutor_welcome %></p>
-			      </div>
-			      <div class = "google_map" onload="google_map_initialize()">
-			        <div id="map_canvas"></div>
-			      </div>
-			    </div>
-			    <div class="tab-pane" id="lB">
-			       <p>I'm in Section B.</p>
-			    </div>
-			    <div class="tab-pane" id="lC" class="reviews">
-			      <%= render 'study_groups/reviews'%>
-			    </div>
-			    <div class="tab-pane" id="lD">
-			       <%= render 'study_groups/faqs'%>
-			    </div>
-			    <div class="tab-pane" id="lE">
-			       <%= render 'study_groups/students'%>
-			    </div>
-			    </div>
-			  </div>
-			</div> <!-- end of tabbable tabs-left -->
+  <div class="tab-content">
+    <div class="tab-pane" id="lA">
+      <div class="profile">
+				<h3>Welcome</h3>
+      	<p><%= @tutor.tutor_welcome %></p>
+      </div>
+      <div class = "google_map span6">
+        <div id="map_canvas" 
+        data-latitude = '<%= "#{@tutor_zipcode.latitude}" %>'
+        data-longitude = '<%= "#{@tutor_zipcode.longitude}" %>'></div>
+      </div>
+    </div>
+    <div class="tab-pane" id="lB">
+       <p>I'm in Section B.</p>
+    </div>
+    <div class="tab-pane" id="lC" class="reviews">
+      <%= render 'study_groups/reviews'%>
+    </div>
+    <div class="tab-pane" id="lD">
+       <%= render 'study_groups/faqs'%>
+    </div>
+    <div class="tab-pane" id="lE">
+       <%= render 'study_groups/students'%>
+    </div>
+    </div>
+  </div>
+</div> <!-- end of tabbable tabs-left -->
 			
 			
 			
