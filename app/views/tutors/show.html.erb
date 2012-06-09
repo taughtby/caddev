@@ -1,9 +1,10 @@
 
 <div class = "container_tutor">
-<div class="row" class = "tutor_show_header">
+<div class="row">
   <div class="span12">
     <div class="row">
       <div class="span6">
+        <img class="tutor_img" src="/assets/fry_face.jpg" width="80px" height="85px">
         <h1>Guitaar Lessons for Beginners</h1>
         <p>taughtBy <%= @tutor.user.name %><p>
       </div>
@@ -14,6 +15,7 @@
     </div>
   </div>
 </div>
+<hr>
 
 
 
@@ -24,29 +26,33 @@
   <ul class="nav nav-tabs">
     <li><a href="#lA" data-toggle="tab">Profile</a></li>
     <li><a href="#lB" data-toggle="tab">Classes</a></li>
-    <li><a href="#lC" data-toggle="tab">Review</a></li>
+    <li><a href="#lC" data-toggle="tab">Reviews</a></li>
     <li><a href="#lD" data-toggle="tab">Community</a></li>
   </ul>
 
   <div class="tab-content">
     <div class="tab-pane" id="lA">
       <div class="profile">
-      	<h3>Profile</h3>
-      	<div class="contact">
-      		
-      	</div>
       	<p><%= @tutor.tutor_welcome %></p>
       </div>
       <div class = "google_map" onload="google_map_initialize()">
         <div id="map_canvas"></div>
       </div>
-     </div>
-     <div class="tab-pane" id="lB">
+    </div>
+    <div class="tab-pane" id="lB">
        <p>I'm in Section B.</p>
-      </div>
-      <div class="tab-pane" id="lC">
-        <p>I'm in Section B.</p>
-       </div>
+    </div>
+    <div class="tab-pane" id="lC" class="reviews">
+      <ul>
+         <% @tutor.tutor_reviews.each do |review| %>
+          <li><%= review.review_text %></li>    
+          <li>Posted by <%= review.student.user.name %></li>    
+          <li>on <%= review.created_at %></li><br/>   
+
+         <%end%>
+      </ul>
+    </div>
+    </div>
   </div>
 </div>
 
@@ -66,7 +72,7 @@
 <p class ="btn">Facebook</p>
 
 <div class = "faq">
-  <h3>Questions & Answers</h3>
+  <h3>Questions and Answers</h3>
   <ul>
   	<% @tutor.faqs.each do |faq|%>
   		<li>Q: <%= faq.question%></li>
@@ -76,16 +82,6 @@
   </ul>
 </div>
 
-<div class ="reviews">
-  <h3>Reviews</h3>
-  <ul>
-  	<% @tutor.tutor_reviews.each do |review| %>
-  		<li><%= review.review_text %></li>		
-  		<li>Posted by <%= review.student.user.name %></li>		
-  		<li><%= review.created_at %></li>		
 
-  	<%end%>
-  </ul>
-</div>
 
 </div>
