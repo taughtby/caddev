@@ -1,21 +1,9 @@
 Caddev::Application.routes.draw do
-  get "study_groups/index"
-
-  get "study_groups/show"
-
-  get "study_groups/update"
-
-  get "study_groups/new"
-
-  get "study_groups/create"
-
-  get "study_groups/delete"
-
-  resources :controllers
+  get 'study_groups/' => "study_groups#index", :as => :study_groups
+  get 'study_groups/:id' => "study_groups#show"
 
   resources :subjects
   resources :tutors
-  resources :study_groups
   resources :users
     
   get "sessions/new", :as => :sign_in

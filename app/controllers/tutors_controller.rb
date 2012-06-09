@@ -1,20 +1,8 @@
 class TutorsController < ApplicationController
 	
 	def index
-	  if params[:subject].present? && params[:location].present?
-	    puts "RECEIVED subject = '#{params[:subject]}'"
-  	  puts "RECEIVED location = '#{params[:location]}'"
-  	  
-  	  @subjects = Subject.where( "LOWER(name) LIKE ?", params[:subject].downcase ).limit(1)  
-  	  
-  	  if @subjects.count > 0
-  	    puts "found #{@subjects.count} matching #{params[:subject]}"  
-  		  @tutors = Tutor.find_all
-  		  @subjects = MajorSubjectArea.all
-		  end
-    end
-    
-      
+	  @tutors = Tutor.find_all
+	  @subjects = MajorSubjectArea.all
 	end
 
 	def edit
