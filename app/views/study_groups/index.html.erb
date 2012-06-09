@@ -24,7 +24,11 @@
         <td><%= "#{sg.students.count}" %></td>
         <td><%= "#{sg.student_limit-sg.students.count}" %></td>
         <td><%= "#{sg.cost_per_hour}" %></td>
-        <td><%= "button to register" %></td>
+        <% if session[:uid].present? %>
+          <td><%= link_to "button to register", new_study_group_registration_url(:study_group_id => sg.id) %></td>
+        <%else%>
+          <td><%=link_to "Sign In to Register", sign_in_url%></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

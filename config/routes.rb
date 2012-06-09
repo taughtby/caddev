@@ -1,4 +1,5 @@
 Caddev::Application.routes.draw do
+
   get 'study_groups/' => "study_groups#index", :as => :study_groups
   get 'study_groups/:id' => "study_groups#show"
 
@@ -7,6 +8,7 @@ Caddev::Application.routes.draw do
   resources :users
   resources :students
   resources :tutor_reviews
+  resources :study_group_registrations
     
   get "sessions/new", :as => :sign_in
   get "signout" => 'sessions#destroy', :as => :sign_out
