@@ -11,6 +11,9 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'kaminari'
+
+
 group :production do
   gem 'pg'
 end
@@ -25,10 +28,12 @@ group :assets do
   # gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass'
+  
 end
 
+gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'bourbon'
 
 # To use ActiveModel has_secure_password

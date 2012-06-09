@@ -19,3 +19,9 @@ $(function() {
   //     maxResults: 5
   //   });
 });
+
+$('.typeahead').typeahead()
+
+$(function () {
+    $('#myTab a:first').tab('show');
+  })

@@ -1,8 +1,7 @@
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
- 
-        <a class="brand">TaughtBy</a>
+        <%= link_to "TaughtBy", root_url, :class => "brand" %>
         <ul class="nav">
 	
 				<% if session[:uid].present? %>

@@ -3,6 +3,7 @@ class TutorsController < ApplicationController
 	def index
 	  @tutors = Tutor.find(:all)
 	  @subjects = MajorSubjectArea.find(:all)
+	  @tutors = Tutor.page(params[:page]).per(10)
 	end
 
 	def edit
