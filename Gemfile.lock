@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/rweng/jquery-datatables-rails.git
+  revision: ba12807aad9e1519b49e0244eefdd1e744dad618
+  specs:
+    jquery-datatables-rails (1.10.0)
+      jquery-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -121,6 +128,7 @@ DEPENDENCIES
   bourbon
   coffee-rails (~> 3.2.1)
   faker
+  jquery-datatables-rails!
   jquery-rails
   pg
   quiet_assets

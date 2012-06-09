@@ -19,3 +19,5 @@ $(function() {
   //     maxResults: 5
   //   });
 });
+
+$('.typeahead').typeahead()

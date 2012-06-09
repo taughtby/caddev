@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables
 //= require bootstrap
+//= require bootstrap_typeahead
 //= require_tree .
