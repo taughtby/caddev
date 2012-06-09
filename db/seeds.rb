@@ -53,21 +53,21 @@ puts "\t #{StudyGroupPost.count} posts"
 puts "\t #{StudyGroupComment.count} comments"
 
 puts "================ ZIP CODES ================"
-# Zipcode.destroy_all
-# 
-# fid = File.open( "doc/zipcodes.txt", "r")
-# fid.each do |line|
-#     Zipcode.transaction do
-#       sp = line.split(",")
-#       zipcode   = sp[1][1..-2].to_i
-#       state     = sp[2][1..-2]
-#       city      = sp[3][1..-2]
-#       longitude = sp[4].to_f
-#       latitude  = sp[5].to_f
-#       Zipcode.create( :code => zipcode, :city => city, :state => state, :longitude => longitude , :latitude => latitude)
-#     end
-# end
-# fid.close()
+Zipcode.destroy_all
+
+fid = File.open( "doc/zipcodes.txt", "r")
+fid.each do |line|
+    Zipcode.transaction do
+      sp = line.split(",")
+      zipcode   = sp[1][1..-2].to_i
+      state     = sp[2][1..-2]
+      city      = sp[3][1..-2]
+      longitude = sp[4].to_f
+      latitude  = sp[5].to_f
+      Zipcode.create( :code => zipcode, :city => city, :state => state, :longitude => longitude , :latitude => latitude)
+    end
+end
+fid.close()
 
 
 
