@@ -19,3 +19,4 @@
 	<h4><%= tutor.user.city %></h4>
 	<p><%= truncate(tutor.tutor_welcome, :length => 160) %><p>
 <%end%>
+<%= paginate @tutors %>
