@@ -1,16 +1,16 @@
 Caddev::Application.routes.draw do
-  #mount Soulmate::Server, :at => "/sm"
-  
+  get 'study_groups/' => "study_groups#index", :as => :study_groups
+  get 'study_groups/:id' => "study_groups#show"
+
+  resources :subjects
+  resources :tutors
+  resources :users
+    
   get "sessions/new", :as => :sign_in
   get "signout" => 'sessions#destroy', :as => :sign_out
   post "sessions/create"
 
-  resources :subjects
-  resources :tutors
-
-    resources :users
+  get 'pages/sample' => "pages#sample", :as => :sample
   
   root to: 'pages#home'
-
-  get 'pages/sample' => "pages#sample", :as => :sample
 end
