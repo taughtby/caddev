@@ -33,7 +33,7 @@
 		</style>
 			<%end%>
 			<div id="newcomment"></div>
-			<p>	<%= link_to 'New comment',  %></p> 
+			<p>	<%#= link_to 'New comment', new_comment_url %></p> 
 	<%end%>
 		<div id="newpost"></div>
 		<p>	<%= link_to "New post", new_study_group_study_group_post_path(@study_group.id), :remote => true %></p>
