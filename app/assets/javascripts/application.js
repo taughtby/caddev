@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.bootstrap
 //= require bootstrap
 //= require bootstrap_typeahead
+//= require study_groups
 //= require_tree .
