@@ -12,5 +12,7 @@
  *= bootstrap
  *= require google_map
  *= require common
+ *= require font
+ *= require front_page 
 */
 

@@ -1,0 +1,35 @@
+/* front page - need to have some sort of system */
+
+div .center h1{
+	text-align: center;
+	font-size: 4em;
+	margin:10px;
+}
+
+div .center h2{
+	text-align: center;
+	font-size: 2em;
+	color:ff005a;
+}
+
+div .hero-unit{
+	background: rgba(238, 238, 238, 0.8);
+	padding:20px;
+	border:1px solid #ccc;
+	-webkit-box-shadow: 0px 5px 10px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 5px 10px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 1px 6px rgba(50, 50, 50, 0.6);
+		
+}
+
+body {
+	background:url('/assets/bg_city.jpg') no-repeat center center fixed; 
+	background-size:cover;
+}
+/*html {
+		background: url(images/bg_cit.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}*/

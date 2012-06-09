@@ -17,6 +17,8 @@ class TutorsController < ApplicationController
 
 	def show
 		@tutor = Tutor.find_by_id(params[:id])
+		#how do i set different background images
+		@tutor_show = true
 	end
 
 end

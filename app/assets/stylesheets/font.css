@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Cabin Sketch';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Cabin Sketch Regular'), local('CabinSketch-Regular'), url('http://themes.googleusercontent.com/static/fonts/cabinsketch/v5/d9fijO34zQajqQvl3YHRCaRDOzjiPcYnFooOUGCOsRk.woff') format('woff');
+}
+a.brand {
+	 /* font-family: 'Annie Use Your Telescope', cursive; */
+	/*font-family: 'The Girl Next Door', cursive;*/
+	font-family: 'Cabin Sketch', cursive;
+}
+
+.navbar .brand {
+    font-size:25px;
+}
+
+label {
+	color: #FF639A;
+	font-weight: bold;
+	font-size: 15px;
+	margin: 5px;
+}
