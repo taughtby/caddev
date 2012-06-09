@@ -21,3 +21,7 @@ $(function() {
 });
 
 $('.typeahead').typeahead()
+
+$(function () {
+    $('#myTab a:first').tab('show');
+  })

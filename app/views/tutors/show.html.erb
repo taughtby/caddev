@@ -5,11 +5,12 @@
     <div class="row">
       <div class="span6">
         <img class="tutor_img" src="/assets/fry_face.jpg" width="80px" height="85px">
-        <h1>Guitaar Lessons for Beginners</h1>
+        <h1>Guitar Lessons</h1>
         <p>taughtBy <%= @tutor.user.name %><p>
       </div>
       <div class="span6">
         <p class="btn">Contact Me!</p>
+        <p class ="btn">Facebook</p>
         <p><%= render 'users/contact_info', :user => @tutor.user %></p>
       </div>
     </div>
@@ -23,7 +24,7 @@
 
 
 <div class="tabbable tabs-left">
-  <ul class="nav nav-tabs">
+  <ul class="nav nav-tabs" id="myTab">
     <li><a href="#lA" data-toggle="tab">Profile</a></li>
     <li><a href="#lB" data-toggle="tab">Classes</a></li>
     <li><a href="#lC" data-toggle="tab">Reviews</a></li>
@@ -58,13 +59,4 @@
   </div>
 </div>
 
-
-
-<div class="student-list">
-	<h3>Students</h3>
 	
-</div>
-
-<p class ="btn">Facebook</p>
-
-</div>

@@ -10,11 +10,15 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   
-</head>
-<%= render 'layouts/header' %>
-<body>
+</head> 
+<!-- gets rid of the nav bar on tutor_show -->
+<%= render 'layouts/header' unless (controller.controller_name == "tutors") && (controller.action_name == "show") %>
+
+<!-- trying to set different background images for home page and tutor_show -->
+<body class="<%= @home_page ? 'homepage' : ''%>">
 	<div class="container">
     <%= yield %>
 	</div>
 </body>
 </html>
+

@@ -22,6 +22,10 @@ class StudyGroupsController < ApplicationController
   end
 
   def show
+   @study_group = StudyGroup.find_by_id(params[:id])
+   @tutor= @study_group.tutor
+   @study_group_posts = StudyGroupPost.new
+  
   end
 
   def update

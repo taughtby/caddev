@@ -19,6 +19,8 @@ class TutorsController < ApplicationController
 	def show
 		@tutor = Tutor.find_by_id(params[:id])
 		@tutor_zipcode = Zipcode.find_by_code( @tutor.user.zip.to_s)
+		#how do i set different background images
+		@tutor_show = true
 	end
 
 end

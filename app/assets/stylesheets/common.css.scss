@@ -1,9 +1,23 @@
 /* whatevs */
 @import "bootstrap";
 
+
+
 body {
 	direction: ltr;
 }
+
+/* to set various background images
+body.homepage {
+	background: url('/assets/bg_city.jpg') no-repeat center center fixed; 
+	background-size:cover;
+}
+
+body.tutor_show {
+	background: url('/assets/profile_long.jpg') no-repeat center center fixed;
+	background-size:cover;
+}
+*/
 
 #home{
 	
