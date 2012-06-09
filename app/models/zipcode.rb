@@ -17,14 +17,12 @@ class Zipcode < ActiveRecord::Base
     end
   
     # if we have already added to db
-    if d
-      return d.kms
-    end
+    
     fRkm = 6371
     nRAD_PER_DEG = 0.017453293
     
-    lon1 = zip1.longitude
-    lon2 = zip2.longitude
+    lon1 = -zip1.longitude
+    lon2 = -zip2.longitude
     lat1 = zip1.latitude
     lat2 = zip1.latitude
     
@@ -44,11 +42,15 @@ class Zipcode < ActiveRecord::Base
     dKm = fRkm * c             # delta in kilometers
 
 
-    d = Distance.create( )
-    if zip1.code < zip2.code
-      d = Distance.create( :row_zip => zip1.code, :col_zip => zip2.code, :kms => dKm )
-    else
-      d = Distance.create( :row_zip => zip2.code, :col_zip => zip1.code, :kms => dKm )
+    if !d
+      if zip1.code < zip2.code
+        d = Distance.create( :row_zip => zip1.code, :col_zip => zip2.code, :kms => dKm )
+      else
+        d = Distance.create( :row_zip => zip2.code, :col_zip => zip1.code, :kms => dKm )
+      end
+    else 
+      d.kms = dKm
+      d.save
     end
     return d.kms
   end

@@ -1,0 +1,60 @@
+div .opaque_background {
+     background: rgba(255, 255, 255, 0.8);
+     border-radius: 5px;
+     -webkit-box-shadow: 0px 10px 10px rgba(50, 50, 50, 0.75);
+		-moz-box-shadow:    0px 10px 10px rgba(50, 50, 50, 0.75);
+		box-shadow:         0px 10px 10px rgba(50, 50, 50, 0.75);
+}
+/*add vendors bor*/
+
+header {
+	background: #fff;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	-webkit-box-shadow: 0px 4px 6px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 4px 6px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 3px 6px rgba(50, 50, 50, 0.3);
+}
+
+header img{
+	margin:20px;
+	float:left;
+}
+
+header h1{
+}
+
+div.tutor_nav{
+	margin:20px;
+}
+
+div.verification{
+	margin:20px;
+}
+
+div.student-list{
+	margin:20px;
+}
+
+div.container_tutor img {
+
+	float:left;
+}
+
+.tab-pane {
+	width:700px;
+	
+}
+
+
+
+#myTab {
+	width: 220px;
+}
+
+
+
+
+header .span6 {
+	margin-top: 20px;
+}
