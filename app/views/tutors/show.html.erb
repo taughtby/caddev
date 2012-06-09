@@ -37,8 +37,10 @@
       <div class="profile">
       	<p><%= @tutor.tutor_welcome %></p>
       </div>
-      <div class = "google_map" onload="google_map_initialize()">
-        <div id="map_canvas"></div>
+      <div class = "google_map span6">
+        <div id="map_canvas" 
+        data-latitude = '<%= "#{@tutor_zipcode.latitude}" %>'
+        data-longitude = '<%= "#{@tutor_zipcode.longitude}" %>'></div>
       </div>
     </div>
     <div class="tab-pane" id="lB">

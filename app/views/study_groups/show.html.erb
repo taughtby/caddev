@@ -1,2 +1,39 @@
 <h1>StudyGroups#show</h1>
-<p>Find me in app/views/study_groups/show.html.erb</p>
+
+<div class="hero-unit">
+	<h1><%= @study_group.subject.name %></h1> 
+	<p>Taugh by <%= @tutor.user.name%></p> 
+ 	<p>
+	<p>7 seats available</p>	
+	<a class="btn btn-primary btn-large">
+			Book now
+		</a>
+	</p>
+
+		<h3>Students </h3> 
+		<% @tutor.students.each do |student| %>
+			<li><%=student.name%></li>
+		<%end%>
+	<br>
+	<h3>Cost per hour</h3>
+	<p>$<%= @study_group.cost_per_hour%></p> 
+<h3>Syllabus</h3> 
+<p><%= @study_group.syllabus%></p> 
+	</br>
+	
+	
+	<br>
+	<h3>Posts</h3>
+	 <% @study_group.study_group_posts.each do |post| %>
+	
+	<strong><%= post.title%></strong>
+		<font color="blue" ><p>By: <%= post.user.name%> (tutor)</p></font>
+		<p><%= post.body%></p> 
+		 <% post.study_group_comments.each do |comment| %>
+ <font color="grey"><p style="margin-left: 90px;"><%= comment.user.name%> </font><%= comment.body%> | <font color="grey"><%= comment.created_at%></font></p>
+	
+		</style>
+			<p>	<%= link_to 'New comment',  %></p>
+			<%end%>
+	<%end%>
+		
