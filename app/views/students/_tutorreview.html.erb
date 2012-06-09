@@ -1,0 +1,11 @@
+<%@student.tutor_reviews.each do |review|%>
+	<p><%=review.review_text%></p>
+<%end%>
+
+
+<%= form_for @tutor_review do |f| %>
+	<%= f.hidden_field :student_id, :value => @student.id %>
+	<%= f.label :review_text %>
+	<%= f.text_field :review_text %>
+
+<%end%>

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ControllerTest < ActiveSupport::TestCase
+class DistanceTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

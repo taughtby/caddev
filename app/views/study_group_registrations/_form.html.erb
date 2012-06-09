@@ -1,0 +1,35 @@
+<%= form_for(@registration) do |f| %>
+  <% if @registration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
+
+      <ul>
+      <% @registration.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h2>Tutor: <%= @registration.study_group.tutor.name %></h2>
+  <h2>Student Limit: <%= @registration.study_group.student_limit %></h2>
+  <h2>Cost per Hour: <%= number_to_currency(@registration.study_group.cost_per_hour) %></h2>
+  <h2>Syllabus: <%= @registration.study_group.syllabus %></h2>
+  <%= f.submit "Register" %>
+  <!-- <h3>From: <%#= @registration.flight.departure_airport_code %></h3>
+  <h3>To: <%#= @registration.flight.arrival_airport_code %></h3>
+  
+  <%#= f.hidden_field :flight_id %>
+  
+  <div class="field">
+    <%#= f.label :travels_on %><br />
+    <%#= f.date_select :travels_on %>
+  </div>
+  <div class="field">
+    <%#= f.label :card_number %><br />
+    <%#= f.text_field :card_number %>
+  </div>
+  <div class="actions">
+    
+  </div> -->
+<% end %>

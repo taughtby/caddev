@@ -1,16 +1,17 @@
 Caddev::Application.routes.draw do
-  
-  
-  # post 'study_groups/:id/study_group_posts' => "study_group_posts#new"
 
   resources :subjects
   resources :tutors
   resources :users
+
   resources :study_groups do
     resources :study_group_posts do
       resources :study_group_comments
     end
   end  
+  resources :students
+  resources :tutor_reviews
+  resources :study_group_registrations
     
     # get 'study_groups/' => "study_groups#index", :as => :study_groups
     # get 'study_groups/:id' => "study_groups#show"

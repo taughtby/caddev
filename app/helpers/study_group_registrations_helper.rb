@@ -1,0 +1,2 @@
+module StudyGroupRegistrationsHelper
+end

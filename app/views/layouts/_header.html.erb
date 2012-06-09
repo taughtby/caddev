@@ -5,7 +5,7 @@
         <ul class="nav">
 	
 				<% if session[:uid].present? %>
-					<li><%= link_to "View My Profile", user_url(current_user) %></li>
+					<li><%= link_to "View My Profile", student_url(current_user) %></li>
 					<li><%= link_to "Sign Out", sign_out_url %></li>
 				<% else %>
 					<li class="divider-vertical"></li>

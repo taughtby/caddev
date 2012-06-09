@@ -1,44 +1,57 @@
+<div class="container">
+	<div class="opaque_background">
+	 
+	
+	
+	
+	
+	
+		<div class = "container_tutor">
+		  <div class="row">
+		    <div class="span12">
+			    <header>
+		      <div class="row">
+		      	<div class="span6">
+			        <img src="http://placehold.it/85x85" alt="tutor profile pic">
+			        <h1>Guitar Lessons</h1>
+			        <p>taughtBy <%= @tutor.user.name %><p>
+			      </div>
+		      	<div class="span6">
+			        <p class="btn">Contact Me!</p>
+			       <!-- <p class ="btn">Facebook</p> -->
+			        <p><%= render 'users/contact_info', :user => @tutor.user %></p>
+			      </div>
+		     </div>
+		    </header>
+		  </div>
+		</div> <!-- end of container_tutor> -->
+	
+ 
 
-<div class = "container_tutor">
-<div class="row">
-  <div class="span12">
-    <div class="row">
-      <div class="span6">
-        <img class="tutor_img" src="/assets/fry_face.jpg" width="80px" height="85px">
-        <h1>Guitar Lessons</h1>
-        <p>taughtBy <%= @tutor.user.name %><p>
-      </div>
-      <div class="span6">
-        <p class="btn">Contact Me!</p>
-        <p class ="btn">Facebook</p>
-        <p><%= render 'users/contact_info', :user => @tutor.user %></p>
-      </div>
-    </div>
-  </div>
-</div>
-<hr>
+
+<!-- Start of Left Side Bar>
+<!-- <aside></aside> -->
 
 
-
-
-
-
-<div class="tabbable tabs-left">
-  <ul class="nav nav-tabs" id="myTab">
-    <li><a href="#lA" data-toggle="tab">Profile</a></li>
-    <li><a href="#lB" data-toggle="tab">Classes</a></li>
-    <li><a href="#lC" data-toggle="tab">Reviews</a></li>
-    <li><a href="#lD" data-toggle="tab">FAQs</a></li>
-    <li><a href="#lE" data-toggle="tab">Current Students</a></li>
-  </ul>
+			<div class="tabbable tabs-left">
+			  <ul class="nav nav-tabs" id="myTab">
+			    <li><a href="#lA" data-toggle="tab">Profile</a></li>
+			    <li><a href="#lB" data-toggle="tab">Classes</a></li>
+			    <li><a href="#lC" data-toggle="tab">Reviews</a></li>
+			    <li><a href="#lD" data-toggle="tab">FAQs</a></li>
+			    <li><a href="#lE" data-toggle="tab">Current Students</a></li>
+			  </ul>
 
   <div class="tab-content">
     <div class="tab-pane" id="lA">
       <div class="profile">
+				<h3>Welcome</h3>
       	<p><%= @tutor.tutor_welcome %></p>
       </div>
-      <div class = "google_map" onload="google_map_initialize()">
-        <div id="map_canvas"></div>
+      <div class = "google_map span6">
+        <div id="map_canvas" 
+        data-latitude = '<%= "#{@tutor_zipcode.latitude}" %>'
+        data-longitude = '<%= "#{@tutor_zipcode.longitude}" %>'></div>
       </div>
     </div>
     <div class="tab-pane" id="lB">
@@ -55,6 +68,12 @@
     </div>
     </div>
   </div>
-</div>
-
-	
+</div> <!-- end of tabbable tabs-left -->
+			
+			
+			
+			
+			
+  </div> <!-- end of opaque background -->
+</div> <!-- end of container -->
+ 	
