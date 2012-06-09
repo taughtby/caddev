@@ -1,4 +1,23 @@
 
-<table class="table table-bordered study_groups">
+<table class="table table-bordered study_groups_table">
+  <thead>
+    <td>Class Name</td>
+    <td>Taught By</td>
+    <td>Students</td>
+    <td>Spots Open</td>
+    <td>Cost</td>
+    <td>Register</td>
+  </thead>
 
+  <tbody>
+    <% @study_groups.each do |sg| %>
+      <tr>
+        <td><%= "#{sg.subject.name}" %></td>
+        <td><%= "#{sg.tutor.user.name}" %></td>
+        <td><%= "#{sg.subject.name}" %></td>
+        <td><%= "#{sg.subject.name}" %></td>
+        <td><%= "#{sg.subject.name}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

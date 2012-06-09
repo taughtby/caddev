@@ -1,8 +1,8 @@
 class TutorsController < ApplicationController
 	
 	def index
-	  @tutors = Tutor.find_all
-	  @subjects = MajorSubjectArea.all
+	  @tutors = Tutor.find(:all)
+	  @subjects = MajorSubjectArea.find(:all)
 	end
 
 	def edit
