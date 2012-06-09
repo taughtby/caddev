@@ -4,7 +4,7 @@
 	<h1><%= @study_group.subject.name %></h1> 
 	<p>Taugh by <%= @tutor.user.name%></p> 
  	<p>
-	<p>7 seats available</p>	
+<%="#{@study_group.student_limit-@study_group.students.count}" %>seats available	
 	<a class="btn btn-primary btn-large">
 			Book now
 		</a>
@@ -25,15 +25,21 @@
 	<br>
 	<h3>Posts</h3>
 	 <% @study_group.study_group_posts.each do |post| %>
-	
 	<strong><%= post.title%></strong>
-		<font color="blue" ><p>By: <%= post.user.name%> (tutor)</p></font>
+		<!-- <font color="blue" ><p>By: <%#= post.user.name%> (tutor)</p></font> -->
 		<p><%= post.body%></p> 
 		 <% post.study_group_comments.each do |comment| %>
  <font color="grey"><p style="margin-left: 90px;"><%= comment.user.name%> </font><%= comment.body%> | <font color="grey"><%= comment.created_at%></font></p>
-	
 		</style>
-			<p>	<%= link_to 'New comment',  %></p>
 			<%end%>
+			<div id="newcomment"></div>
+			<p>	<%= link_to 'New comment',  %></p> 
 	<%end%>
+		<div id="newpost"></div>
+		<p>	'New post'<%= link_to "newpost", new_study_group_study_group_post_path(@study_group.id), :remote => true %></p>
+		
+
+		
+		
+		
 		

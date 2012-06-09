@@ -25,7 +25,8 @@ class StudyGroupsController < ApplicationController
    @study_group = StudyGroup.find_by_id(params[:id])
    @tutor= @study_group.tutor
    @study_group_posts = StudyGroupPost.new
-  
+   @study_group_post = @study_group.study_group_posts.build
+   logger.debug @study_group_post.inspect
   end
 
   def update

@@ -1,0 +1,15 @@
+<%= form_for([@study_group, @study_group_post], :remote => true) do |t| %>
+	
+	<div class="field">
+		    <%= t.label :title %><br />
+		    <%= t.text_field :title %>
+		  </div>
+		  <div class="field">
+		    <%= t.label :body %><br />
+		    <%= t.text_field :body %>
+		  </div>
+		<div class="actions">
+		    <%= t.submit %><br />
+		   
+		  </div>
+<%end%>
