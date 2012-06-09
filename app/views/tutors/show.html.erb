@@ -10,7 +10,7 @@
       </div>
       <div class="span6">
         <p class="btn">Contact Me!</p>
-        <p><%= render :partial => 'users/contact_info', :locals => {:user => @tutor.user} %></p>
+        <p><%= render 'users/contact_info', :user => @tutor.user %></p>
       </div>
     </div>
   </div>
@@ -27,7 +27,8 @@
     <li><a href="#lA" data-toggle="tab">Profile</a></li>
     <li><a href="#lB" data-toggle="tab">Classes</a></li>
     <li><a href="#lC" data-toggle="tab">Reviews</a></li>
-    <li><a href="#lD" data-toggle="tab">Community</a></li>
+    <li><a href="#lD" data-toggle="tab">FAQs</a></li>
+    <li><a href="#lE" data-toggle="tab">Current Students</a></li>
   </ul>
 
   <div class="tab-content">
@@ -43,14 +44,13 @@
        <p>I'm in Section B.</p>
     </div>
     <div class="tab-pane" id="lC" class="reviews">
-      <ul>
-         <% @tutor.tutor_reviews.each do |review| %>
-          <li><%= review.review_text %></li>    
-          <li>Posted by <%= review.student.user.name %></li>    
-          <li>on <%= review.created_at %></li><br/>   
-
-         <%end%>
-      </ul>
+      <%= render 'study_groups/reviews'%>
+    </div>
+    <div class="tab-pane" id="lD">
+       <%= render 'study_groups/faqs'%>
+    </div>
+    <div class="tab-pane" id="lE">
+       <%= render 'study_groups/students'%>
     </div>
     </div>
   </div>
@@ -60,28 +60,9 @@
 
 <div class="student-list">
 	<h3>Students</h3>
-	<ul>
-	<% @tutor.students.each do |student| %>
-
-		<li><%=student.name%></li>
-	<%end%>
-
-	</ul>
+	
 </div>
 
 <p class ="btn">Facebook</p>
-
-<div class = "faq">
-  <h3>Questions and Answers</h3>
-  <ul>
-  	<% @tutor.faqs.each do |faq|%>
-  		<li>Q: <%= faq.question%></li>
-  		<li>A: <%= faq.answer%></li>
-
-  	<%end%>
-  </ul>
-</div>
-
-
 
 </div>

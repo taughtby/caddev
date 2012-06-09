@@ -1,0 +1,6 @@
+<ul>
+  <% @tutor.faqs.each do |faq|%>
+  <li>Q: <%= faq.question%>
+      A: <%= faq.answer%></li><br>
+  <%end%>
+</ul>
