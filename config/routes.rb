@@ -1,4 +1,6 @@
 Caddev::Application.routes.draw do
+  get "study_group/index"
+
   #mount Soulmate::Server, :at => "/sm"
   
   get "sessions/new", :as => :sign_in
