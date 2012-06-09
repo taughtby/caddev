@@ -15,5 +15,6 @@
  *= require font
  *= require front_page 
  *= require dataTables/jquery.dataTables.bootstrap
+ *= require tutor_show
 */
 
