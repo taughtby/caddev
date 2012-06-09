@@ -1,22 +1,25 @@
 class StudyGroupsController < ApplicationController
   def index
-    @study_groups = StudyGroup.find(:all)
-    @search_zip = Zipcode.find_by_code("60606")
-    # if params[:subject].present? && params[:location].present?
-    #       puts "RECEIVED subject = '#{params[:subject]}'"
-    #       puts "RECEIVED location = '#{params[:location]}'"
-    #       
-    #       @subjects = Subject.where( "LOWER(name) LIKE ?", params[:subject].downcase ).limit(1)  
-    #       
-    #       if @subjects.count > 0
-    #         puts "found #{@subjects.count} matching #{params[:subject]}"  
-    #         @tutors = Tutor.find_all
-    #         @subjects = MajorSubjectArea.all
-    #       end
-    #     end
-    if @study_groups.count == 0
-      flash[:notice] = "No results for subject = #{params[:subject]} location = #{params[:location]}"
-      redirect_to root_url
+    
+    if params[:subject].present? && params[:location].present?
+      @search_zip = Zipcode.find_by_code(params[:location])
+      @subject = Subject.find_by_name(params[:subject])
+      if @search_zip.nil?
+        flash[:notice] = "No results for zipcode = #{params[:location]}"
+        redirect_to root_url
+      elsif @subject.nil?
+        flash[:notice] = "No results for subject = #{params[:subject]}"
+        redirect_to root_url
+      end
+      
+      @study_groups = StudyGroup.find_all_by_subject_id( @subject.id )
+
+      if @study_groups.count == 0
+        flash[:notice] = "No results for subject = #{params[:subject]} location = #{params[:location]}"
+        redirect_to root_url
+      end
+    else
+      @study_groups = StudyGroup.find(:all, :limit=>1000)
     end
     
   end

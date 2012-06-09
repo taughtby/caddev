@@ -20,7 +20,7 @@
         <td><%= link_to "#{sg.tutor.user.name}", tutor_url(sg.tutor) %></td>
         <td><%= "#{sg.tutor.user.city}, #{sg.tutor.user.state}" %></td>
         <td><%= "#{sg.tutor.user.zip}" %></td>
-        <td><%= "#{Zipcode.distance(sg.tutor.user.zipcode, @search_zip )}" %></td>
+        <td><%= "#{Zipcode.distance(sg.tutor.user.zipcode, @search_zip ).to_i}" %></td>
         <td><%= "#{sg.students.count}" %></td>
         <td><%= "#{sg.student_limit-sg.students.count}" %></td>
         <td><%= "#{sg.cost_per_hour}" %></td>
