@@ -1,11 +1,17 @@
-function google_map_initialize() {
+
+function google_map_initialize( ) {
+  var myLatlng = new google.maps.LatLng($("#map_canvas").data('latitude'),-$("#map_canvas").data('longitude'));
   var myOptions = {
-    center: new google.maps.LatLng(-34.397, 150.644),
+    center: myLatlng,
     zoom: 8,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
   };
-  var map = new google.maps.Map(document.getElementById("map_canvas"),
-      myOptions);
-}
+  var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title:"Hello World!"
+    });
+};
 
 $( google_map_initialize ); 

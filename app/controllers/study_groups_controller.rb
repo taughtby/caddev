@@ -1,7 +1,7 @@
 class StudyGroupsController < ApplicationController
   def index
     @study_groups = StudyGroup.find(:all)
-    
+    @search_zip = Zipcode.find_by_code("60606")
     # if params[:subject].present? && params[:location].present?
     #       puts "RECEIVED subject = '#{params[:subject]}'"
     #       puts "RECEIVED location = '#{params[:location]}'"

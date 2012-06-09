@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  row_zip: MyString
+  col_zip: MyString
+  kms: 1.5
+
+two:
+  row_zip: MyString
+  col_zip: MyString
+  kms: 1.5
