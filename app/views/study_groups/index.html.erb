@@ -1,4 +1,5 @@
-
+<div style="margin-top: 50px">
+</div>
 <table class="table table-bordered study_groups_table">
   <thead>
     <td>Class Name</td>
@@ -14,9 +15,10 @@
       <tr>
         <td><%= "#{sg.subject.name}" %></td>
         <td><%= "#{sg.tutor.user.name}" %></td>
-        <td><%= "#{sg.subject.name}" %></td>
-        <td><%= "#{sg.subject.name}" %></td>
-        <td><%= "#{sg.subject.name}" %></td>
+        <td><%= "#{sg.students.count}" %></td>
+        <td><%= "#{sg.student_limit-sg.students.count}" %></td>
+        <td><%= "#{sg.cost_per_hour}" %></td>
+        <td><%= "button to register" %></td>
       </tr>
     <% end %>
   </tbody>
