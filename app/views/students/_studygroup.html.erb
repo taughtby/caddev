@@ -1,0 +1,9 @@
+<%= form_tag study_groups_url, :method => 'get', :class => "prepend-3" do %>
+								<label>I want to learn...</label>
+								<input id='search-subject' type="text" class="span6 search-query" name='subject' value='' autocomplete='off' placeholder="a subject..." data-provide="typeahead" data-items="4" data-source="[&quot;Guitar&quot;,&quot;Classicial Guitar&quot;,&quot;Piano&quot;,&quot;Rails&quot;,&quot;Coding&quot;,&quot;Football&quot;]">
+						    <label>near...</label>
+						    
+						    <input id='search-location' type="text" class="span6 search-query" name='location' value='' autocomplete='off' placeholder="a place...">
+						    <br/><br/>
+								<button type="submit" class="btn btn-success btn-large">Search for your tutor</button>
+						<% end %>

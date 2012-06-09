@@ -1,0 +1,59 @@
+
+<div class = "container_tutor">
+<div class="row">
+  <div class="span12">
+    <div class="row">
+      <div class="span6">
+        <img class="tutor_img" src="/assets/student.jpg" width="80px" height="85px">
+        <h1><%=@student.name%></h1>
+      </div>
+      <div class="span6">
+        <p class="btn">Contact Me!</p>
+        <p class ="btn">Facebook</p>
+        <p><%= render 'users/contact_info', :user => @student %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+
+
+
+
+
+<div class="tabbable tabs-left">
+  <ul class="nav nav-tabs" id="myTab">
+    <li><a href="#lA" data-toggle="tab">Profile</a></li>
+    <li><a href="#lB" data-toggle="tab">Classes</a></li>
+    <li><a href="#lC" data-toggle="tab">Reviews</a></li>
+    <li><a href="#lD" data-toggle="tab">FAQs</a></li>
+    
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane" id="lA">
+      <div class="profile">
+      	<p><%=%></p>
+      </div>
+      <div class = "google_map" onload="google_map_initialize()">
+        <div id="map_canvas"></div>
+      </div>
+    </div>
+    <div class="tab-pane" id="lB">
+       <p>I'm in Section B.</p>
+
+       <%= render 'studygroup' %>
+    </div>
+    <div class="tab-pane" id="lC" class="reviews">
+      <%= render 'tutorreview' %>
+    </div>
+    <div class="tab-pane" id="lD">
+       <%= %>
+    </div>
+    
+    </div>
+  </div>
+</div>
+
+	

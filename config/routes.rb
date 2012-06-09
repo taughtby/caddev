@@ -5,6 +5,8 @@ Caddev::Application.routes.draw do
   resources :subjects
   resources :tutors
   resources :users
+  resources :students
+  resources :tutor_reviews
     
   get "sessions/new", :as => :sign_in
   get "signout" => 'sessions#destroy', :as => :sign_out
