@@ -6,7 +6,8 @@ Caddev::Application.routes.draw do
 
   resources :study_groups do
     resources :study_group_posts do
-      resources :study_group_comments
+      resources :study_group_comments do
+      end
     end
   end  
   resources :students
