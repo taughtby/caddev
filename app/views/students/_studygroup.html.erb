@@ -1,7 +1,9 @@
-<%@student.study_groups.each do |sg|%>
-	<%=sg.subject.name%>
+<ul>
+<% @student.study_group_registrations.each do |sgr| %>
+	<li><%= sgr.study_group.subject.name %></li><br>
+<% end %>
+</ul>
 
-<%end%>
 
 
 <%= form_tag study_groups_url, :method => 'get', :class => "prepend-3" do %>
