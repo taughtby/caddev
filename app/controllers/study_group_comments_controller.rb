@@ -1,5 +1,5 @@
 class StudyGroupCommentsController < ApplicationController
-end
+
   def new
     @study_group_post = StudyGroupPost.find_by_id(params[:study_group_id])
     @study_group_comment = @study_group_post.study_group_comment.build

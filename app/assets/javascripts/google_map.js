@@ -14,4 +14,7 @@ function google_map_initialize( ) {
     });
 };
 
-$( google_map_initialize ); 
+
+$(document).ready(
+  google_map_initialize
+);
