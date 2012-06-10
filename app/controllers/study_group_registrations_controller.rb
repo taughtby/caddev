@@ -6,7 +6,7 @@ class StudyGroupRegistrationsController < ApplicationController
   def require_user
     @registration = StudyGroupRegistration.find(params[:id])
     if @registration.user.id != session[:uid]
-      redirect_to root_url, notice: "Nice try again!"
+      redirect_to root_url, notice: "Please Sign In to Register"
     end
   end
   
@@ -56,13 +56,15 @@ class StudyGroupRegistrationsController < ApplicationController
   # POST /registrations
   # POST /registrations.json
   def create
-    @registration = StudyGroupRegistration.new(params[:registration])
-    @student = Student.find_by_user_id(session[:uid])
-    @registration.student_id = @student.id
+    @registration = StudyGroupRegistration.new(params[:study_group_registration])
+    # @student = Student.find_by_user_id(session[:uid])
+    # @registration.student_id = @student.id
+    @registration.student = Student.find_by_user_id(session[:uid])
+
     
     respond_to do |format|
       if @registration.save   
-        format.html { redirect_to student_url(@student), notice: 'StudyGroupRegistration was successfully created.' }
+        format.html { redirect_to student_url(@registration.student), notice: 'StudyGroupRegistration was successfully created.' }
         format.json { render json: @registration, status: :created, location: @registration }
       else
         format.html { render action: "new" }

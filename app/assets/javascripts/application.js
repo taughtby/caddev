@@ -17,4 +17,6 @@
 //= require bootstrap
 //= require bootstrap_typeahead
 //= require study_groups
+//= require fullcalendar/fullcalendar.min
+//= require fullcalendar/gcal
 //= require_tree .
