@@ -16,7 +16,7 @@
   <tbody>
     <% @study_groups.each do |sg| %>
       <tr>
-        <td><%= "#{sg.subject.name}" %></td>
+        <td><%= link_to "#{sg.subject.name}", study_group_url(sg) %></td>
         <td><%= link_to "#{sg.tutor.user.name}", tutor_url(sg.tutor) %></td>
         <td><%= "#{sg.tutor.user.city}, #{sg.tutor.user.state}" %></td>
         <td><%= "#{sg.tutor.user.zip}" %></td>
