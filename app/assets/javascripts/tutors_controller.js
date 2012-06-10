@@ -48,6 +48,22 @@ $(document).ready(function() {
         eventClick: function(event, jsEvent, view){
           // would like a lightbox here.
         },
+        events: [
+                {
+                    title  : 'event1',
+                    start  : '2012-06-08'
+                },
+                {
+                    title  : 'event2',
+                    start  : '2012-06-15',
+                    end    : '2012-06-21'
+                },
+                {
+                    title  : 'event3',
+                    start  : '2012-06-12 12:30:00',
+                    allDay : false // will make the time show
+                }
+            ]
 	});
 });
 
