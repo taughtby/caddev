@@ -1,5 +1,7 @@
 Caddev::Application.routes.draw do
 
+  resources :events
+
   resources :subjects
   resources :tutors
   resources :users
