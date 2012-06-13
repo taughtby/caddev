@@ -3,7 +3,7 @@
 <div class="hero-unit">
 	<h1><%= @study_group.subject.name %></h1> 
 	<td><%= link_to "Back to study groups", study_groups_url %></td>
-	<p>Taught by <%= @tutor.user.name%></p> 
+	<p>Taught by <%= link_to "#{@study_group.tutor.user.name}", tutor_url(@study_group.tutor) %></p> 
     <%="#{@study_group.student_limit-@study_group.students.count}" %> seats available	
 	<td><%=link_to "Sign In to Register", sign_in_url%></td>
 	

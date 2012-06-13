@@ -55,8 +55,36 @@
         data-longitude = '<%= "#{@tutor_zipcode.longitude}" %>'></div>
       </div>
     </div>
-    <div class="tab-pane" id="lB">
-       <p>I'm in Section B.</p>
+   
+    <div class="tab-pane" id="lB">     
+       <table class="tutor-classes-table">
+         <thead>
+            <td>Class Name</td>
+            <td>Taught By</td>
+            
+            <td>Students</td>
+            <td>Spots Open</td>
+            <td>Cost</td>
+            <td>Register</td>
+          </thead>
+          <tbody>
+             <% @study_groups.each do |sg| %>
+               <tr>
+                 <td><%= link_to "#{sg.subject.name}", study_group_url(sg) %></td>
+                 <td><%= link_to "#{sg.tutor.user.name}", tutor_url(sg.tutor) %></td>
+                 <td><%= "#{sg.students.count}" %></td>
+                 <td><%= "#{sg.student_limit-sg.students.count}" %></td>
+                 <td><%= "#{sg.cost_per_hour}" %></td>
+                 <% if session[:uid].present? %>
+                   <td><%= link_to "button to register", new_study_group_registration_url(:study_group_id => sg.id) %></td>
+                 <%else%>
+                   <td><%=link_to "Sign In to Register", sign_in_url%></td>
+                 <% end %>
+               </tr>
+             <% end %>
+           </tbody>
+          </table>
+     
     </div>
     <div class="tab-pane" id="lC" class="reviews">
       <%= render 'study_groups/reviews'%>

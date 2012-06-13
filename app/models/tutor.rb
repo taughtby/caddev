@@ -3,6 +3,7 @@ class Tutor < ActiveRecord::Base
   
   belongs_to :user
   has_many :study_groups, :dependent => :destroy
+  has_many :subjects, :through => :study_groups
   has_many :students, :through => :study_groups
   has_many :tutor_reviews
   has_many :tutor_review_replies

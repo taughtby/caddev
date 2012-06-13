@@ -1,6 +1,5 @@
 class StudyGroupsController < ApplicationController
   def index
-    
     if params[:subject].present? && params[:location].present?
       @search_zip = Zipcode.find_by_code(params[:location])
       @subject = Subject.find_by_name(params[:subject])
@@ -18,20 +17,14 @@ class StudyGroupsController < ApplicationController
         flash[:notice] = "No results for subject = #{params[:subject]} location = #{params[:location]}"
         redirect_to root_url
       end
-    else
+      else
       @study_groups = StudyGroup.find(:all, :limit=>1000)
-    end
-    
+      end 
   end
 
   def show
-   @study_group = StudyGroup.find_by_id(params[:id])
-   @tutor= @study_group.tutor
-   #@study_group_posts = StudyGroupPost.new
-   #@study_group_post = @study_group.study_group_posts.build
-   #logger.debug @study_group_post.inspect
-   #@study_group_comment = StudyGroupComment.new
-   # @study_group_comment = @study_group_post.study_group_comment.build
+    @study_group = StudyGroup.find_by_id(params[:id])
+    @tutor= @study_group.tutor
   end
 
   def update
