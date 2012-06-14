@@ -20,20 +20,26 @@
 </div>
 
 <h3>Posts</h3> 
-	<div id="newpost"></div>
+	<div id="newpost">
 	  <%= link_to "New post", new_study_group_study_group_post_path(@study_group.id), :remote => true %>
+	</div>
+	
+	<div id="allposts"> 
 	  <% @study_group.study_group_posts.each do |post| %>
 	    <%= post.title%></p>
+	    <%= post.body%></p>
 		  <% post.study_group_comments.each do |comment| %>
         <%= comment.user.name%> <%= comment.body%> | <%= comment.created_at%>
 		  <%end%>
 	</div>
-	<div class="newcomment"></div>
+	
+	<div class="newcomment">
 		  <%= puts "Post = '#{post.id}'"%>
       <% @study_group_comment = post.study_group_comments.build %>
       <%= form_for [@study_group, post, @study_group_comment] do |t| %>
         <%= t.hidden_field :user_id, :value =>986 %>
   </div>
+  
   <div class="field">
   	  <%= t.label :new_comment%><br />
   	  <%= t.text_field :body %>
