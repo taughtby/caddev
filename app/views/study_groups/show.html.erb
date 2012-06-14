@@ -13,7 +13,9 @@
 	<%end%>
 	
 	<h3>Cost per hour</h3>
-	$<%= @study_group.cost_per_hour%></p> 
+	<p><%= number_to_currency(@study_group.cost_per_hour) %></p>
+
+	
   
   <h3>Syllabus</h3> 
   <p><%= @study_group.syllabus%></p> 

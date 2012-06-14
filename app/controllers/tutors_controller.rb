@@ -1,5 +1,5 @@
 class TutorsController < ApplicationController
-	
+	before_filter :require_login, :only => [:edit, :update]
 	def index
 	  @tutors = Tutor.find(:all)
 	  @subjects = MajorSubjectArea.find(:all)
