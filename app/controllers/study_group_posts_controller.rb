@@ -1,4 +1,5 @@
 class StudyGroupPostsController < ApplicationController
+  before_filter :require_login, :except => [:show]
 
   def new
     @study_group = StudyGroup.find_by_id(params[:study_group_id])
