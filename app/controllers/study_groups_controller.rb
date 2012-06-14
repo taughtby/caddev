@@ -25,6 +25,7 @@ class StudyGroupsController < ApplicationController
   def show
     @study_group = StudyGroup.find_by_id(params[:id])
     @tutor= @study_group.tutor
+    
   end
 
   def update
