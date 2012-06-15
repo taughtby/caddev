@@ -16,8 +16,6 @@ Caddev::Application.routes.draw do
   resources :tutor_reviews
   resources :study_group_registrations
 
-  
-    
     # get 'study_groups/' => "study_groups#index", :as => :study_groups
     # get 'study_groups/:id' => "study_groups#show"
 

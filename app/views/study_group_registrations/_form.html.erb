@@ -1,4 +1,4 @@
-<%= form_for(@registration) do |f| %>
+
   <% if @registration.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
@@ -21,8 +21,5 @@
     <h3>Cost per hour</h3>
     <p><%= number_to_currency(@registration.study_group.cost_per_hour) %></p>
 
-    <%= f.hidden_field :study_group_id %>
-    
-    <%= f.submit "Register Now!" %>
+    <%= render 'registration_button' %>
   </div>
-<% end %>

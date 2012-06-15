@@ -1,12 +1,5 @@
 <div class="container">
-
 	<div class="opaque_background">
-	 
-	
-	
-	
-	
-	
 			<div class = "container_tutor">
 			  <div class="row">
 			    <div class="span12">
@@ -33,7 +26,6 @@
 			    </header>
 			  </div>
 			</div> <!-- end of container_tutor> -->
-		
 	
  
 			<div class="modal hide" id="myModal">
@@ -116,18 +108,20 @@
       </div>
     </div>
    
-    <div class="tab-pane" id="lB">     
-       <table class="tutor-classes-table">
-         <thead>
-            <td>Class Name</td>
-            <td>Taught By</td>
-            
-            <td>Students</td>
-            <td>Spots Open</td>
-            <td>Cost</td>
-            <td>Register</td>
-          </thead>
-          <tbody>
+    <div class="tab-pane" id="lB">  
+       <% if session[:uid].present? %>
+
+         <table class="table table-bordered", id="study_groups_table">
+           <thead>
+             <td>Class Name</td>
+             <td>Taught By</td>
+             <td>Students</td>
+             <td>Spots Open</td>
+             <td>Cost</td>
+             <td>Register</td>
+           </thead>
+
+           <tbody>
              <% @study_groups.each do |sg| %>
                <tr>
                  <td><%= link_to "#{sg.subject.name}", study_group_url(sg) %></td>
@@ -136,15 +130,28 @@
                  <td><%= "#{sg.student_limit-sg.students.count}" %></td>
                  <td><%= "#{sg.cost_per_hour}" %></td>
                  <% if session[:uid].present? %>
-                   <td><%= link_to "button to register", new_study_group_registration_url(:study_group_id => sg.id) %></td>
+                   <td><%= link_to "Register Now!", new_study_group_registration_url(:study_group_id => sg.id) %></td>
                  <%else%>
                    <td><%=link_to "Sign In to Register", sign_in_url%></td>
                  <% end %>
                </tr>
              <% end %>
            </tbody>
-          </table>
-     
+         </table> 
+  
+        <%else%>
+        
+        <div id="sg">
+         <% @study_groups.each do |sg| %>
+         <%= link_to "#{sg.subject.name}", study_group_url(sg) %>
+         </div>
+         <div id="newpost">
+      	 <p><%= link_to "New post", new_study_group_study_group_post_path(sg.id), :remote => true %></p>
+      	<% end %>
+      
+      	</div>
+      	
+        <% end %>
     </div>
     <div class="tab-pane" id="lC" class="reviews">
       <%= render 'study_groups/reviews'%>
@@ -162,8 +169,7 @@
   </div>
 </div> <!-- end of tabbable tabs-left -->
 			
-			
-			
+	
 			
 			
   </div> <!-- end of opaque background -->

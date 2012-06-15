@@ -13,11 +13,13 @@ class StudyGroupPostsController < ApplicationController
       if @study_group_post.save
         flash[:notice] = 'Post was successfully created'
         logger.debug "SAVED WORK"
+        redirect_to :back 
       else
         flash[:alert] = 'Post NOT created'
          logger.debug "DIDNT WORK"
+         redirect_to :back
       end
-      redirect_to :back 
+      
       # study_group_url(params[:study_group_id])
   end
 end

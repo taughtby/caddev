@@ -23,7 +23,6 @@ class TutorsController < ApplicationController
 		#how do i set different background images
 		@tutor_show = true
 		@study_groups = StudyGroup.find_all_by_tutor_id(@tutor)
-	
 	end
 
 end
