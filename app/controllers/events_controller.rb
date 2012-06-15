@@ -24,9 +24,42 @@ class EventsController < ApplicationController
         @tutor.study_groups.each do |sg|
           event = {}
           event[:id]        = sg.id
-          event[:title]     = sg.subject.name
-          event[:start]     = DateTime.new( 2012, 6, 9, 9,15,0).in_time_zone("Central Time (US & Canada)").to_formatted_s(:rfc822)
-          event[:end]       = DateTime.new( 2012, 6, 9, 12,10,0).in_time_zone("Central Time (US & Canada)").to_formatted_s(:rfc822)
+          event[:title]     = "KARATE"
+          event[:start]     = DateTime.new( 2012, 6, 12, 19,15,0).in_time_zone("Central Time (US & Canada)").to_formatted_s(:rfc822)
+          event[:end]       = DateTime.new( 2012, 6, 12, 22,10,0).in_time_zone("Central Time (US & Canada)").to_formatted_s(:rfc822)
+          event[:allDay]    = false
+          event[:recurring] = false
+          event[:ignoreTimeZone] = true
+          event[:url]       =  Rails.application.routes.url_helpers.event_path(1)
+          @events << event
+          
+          event = {}
+          event[:id]        = sg.id
+          event[:title]     = "KARATE"
+          event[:start]     = DateTime.new( 2012, 6, 19, 16,15,0).in_time_zone("Central Time (US & Canada)").to_formatted_s(:rfc822)
+          event[:end]       = DateTime.new( 2012, 6, 19, 17,10,0).in_time_zone("Central Time (US & Canada)").to_formatted_s(:rfc822)
+          event[:allDay]    = false
+          event[:recurring] = false
+          event[:ignoreTimeZone] = true
+          event[:url]       =  Rails.application.routes.url_helpers.event_path(1)
+          @events << event
+          
+          event = {}
+          event[:id]        = sg.id
+          event[:title]     = "KARATE"
+          event[:start]     = DateTime.new( 2012, 6, 4, 14,15,0).in_time_zone("Central Time (US & Canada)").to_formatted_s(:rfc822)
+          event[:end]       = DateTime.new( 2012, 6, 4, 17,10,0).in_time_zone("Central Time (US & Canada)").to_formatted_s(:rfc822)
+          event[:allDay]    = false
+          event[:recurring] = false
+          event[:ignoreTimeZone] = true
+          event[:url]       =  Rails.application.routes.url_helpers.event_path(1)
+          @events << event
+          
+          event = {}
+          event[:id]        = sg.id
+          event[:title]     = "KARATE"
+          event[:start]     = DateTime.new( 2012, 6, 23, 19,15,0).in_time_zone("Central Time (US & Canada)").to_formatted_s(:rfc822)
+          event[:end]       = DateTime.new( 2012, 6, 23, 22,10,0).in_time_zone("Central Time (US & Canada)").to_formatted_s(:rfc822)
           event[:allDay]    = false
           event[:recurring] = false
           event[:ignoreTimeZone] = true
