@@ -1,11 +1,161 @@
 div .opaque_background {
-     background: rgba(255, 255, 255, 0.8);
+	   margin-top:30px;
+	   margin-bottom:30px;
+     background: rgba(255, 255, 255, 0.9);
      border-radius: 5px;
      -webkit-box-shadow: 0px 10px 10px rgba(50, 50, 50, 0.75);
 		-moz-box-shadow:    0px 10px 10px rgba(50, 50, 50, 0.75);
 		box-shadow:         0px 10px 10px rgba(50, 50, 50, 0.75);
 }
 /*add vendors bor*/
+
+header {
+	background: #fff;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	-webkit-box-shadow: 0px 4px 6px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 4px 6px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 3px 6px rgba(50, 50, 50, 0.3);
+}
+
+header img{
+	margin:8px 20px 10px 40px;
+	float:left;
+}
+
+header .span6 h1{
+	color: 4c4c4c;
+}
+
+header p {
+	margin-top:3px;
+}
+
+div.fuck-off {
+	margin-top:30px;
+}
+
+div.fuck-off a {
+	
+	background: #68A7D2;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 25px;
+	padding: 2px 30px 2px 30px;
+	margin-bottom: 3px;
+	
+}
+
+div.fuck-off i {
+	margin-top:10px;
+	margin-right: 10px;
+}
+
+
+header p.tutor-name {
+	font-size: 20px;
+	
+}
+div.container_tutor img {
+ float:left;
+}
+
+
+
+
+
+div.profile h3 {
+	font-size: 14px;
+	margin-bottom: 15px;
+	color: #68A7D2;
+	
+}
+
+.tab-pane {
+	width:620px;
+	margin-top:20px;
+}
+/* cos there's only one button */
+
+/* .nav-tabs > li > a{ 
+	background-color: #68A7D2; 
+} */
+
+/*ul.nav nav-pills li.active a {
+	color: #68A7D2;
+}*/
+
+p.contact-details {
+	font-size:10px;
+}
+
+#myTab {
+	width: 220px;
+}
+
+#calendar {
+  padding: 20px;
+}
+
+
+
+header .span6 {
+	margin-top: 20px;
+}
+
+
+.share p{
+	float:left;
+	margin-top:5px;
+}
+.share img {
+	margin: 5px;
+	
+}
+
+.tabs-left > .nav-tabs > li > a {
+  margin-right: 0px;	
+  margin-left:40px;
+  border-radius: 4px;
+ 
+}
+	
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover{
+	color: #fff;
+  background-color: #68A7D2;
+  border: #ff0059;
+}	
+
+#myTab a {
+	color: #4c4c4c;
+}
+
+.tabs-left > .nav-tabs{
+	border-right: none;
+	margin-right: 60px;
+}
+.tab-content h3 {
+	color: 68A7D2
+}
+	
+	
+	
+	
+	
+	
+
+
+
+
+/*
+div .opaque_background {
+     background: rgba(255, 255, 255, 0.8);
+     border-radius: 5px;
+     -webkit-box-shadow: 0px 10px 10px rgba(50, 50, 50, 0.75);
+		-moz-box-shadow:    0px 10px 10px rgba(50, 50, 50, 0.75);
+		box-shadow:         0px 10px 10px rgba(50, 50, 50, 0.75);
+}
+add vendors bor
 
 header {
 	background: #fff;
@@ -61,3 +211,5 @@ div.container_tutor img {
 header .span6 {
 	margin-top: 20px;
 }
+
+*/

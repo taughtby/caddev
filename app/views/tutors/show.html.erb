@@ -1,4 +1,5 @@
 <div class="container">
+
 	<div class="opaque_background">
 	 
 	
@@ -6,28 +7,48 @@
 	
 	
 	
-		<div class = "container_tutor">
-		  <div class="row">
-		    <div class="span12">
-			    <header>
-		      <div class="row">
-		      	<div class="span6">
-			        <img src="http://placehold.it/85x85" alt="tutor profile pic">
-			        <h1>Guitar Lessons</h1>
-			        <p>taughtBy <%= @tutor.user.name %><p>
-			      </div>
-		      	<div class="span6">
-			        <p class="btn">Contact Me!</p>
-			       <!-- <p class ="btn">Facebook</p> -->
-			        <p><%= render 'users/contact_info', :user => @tutor.user %></p>
-			      </div>
-		     </div>
-		    </header>
-		  </div>
-		</div> <!-- end of container_tutor> -->
+			<div class = "container_tutor">
+			  <div class="row">
+			    <div class="span12">
+				    <header>
+			      <div class="row">
+			      	<div class="span6">
+				        <img src="http://placehold.it/75x75" alt="tutor profile pic">
+				        <h1>Football Lessons</h1> <!-- Dynamic what exactly are you going to call this -->
+				        <p class="tutor-name"><a href="http://localhost:3000">taughtby</a> <%= @tutor.user.name %><p>
+					        <div class="share">
+						        <p>share:</p>
+										<img src="http://placehold.it/15x15" alt="facebook">
+										<img src="http://placehold.it/15x15" alt="twitter">
+										<img src="http://placehold.it/15x15" alt="email">
+						      </div>
+				      </div>
+				      <div class="fuck-off">
+			      		<div class="span4 offset2">	 
+								<a href="#"><i class="icon-envelope icon-white"></i>Contact Me</a>
+								<p class="contact-details"><%= render 'users/contact_info', :user => @tutor.user %></p>
+								<a class="btn" data-toggle="modal" href="#myModal" >Launch Modal</a>
+					      </div>
+			     </div>
+			    </header>
+			  </div>
+			</div> <!-- end of container_tutor> -->
+		
 	
  
-
+			<div class="modal hide" id="myModal">
+			  <div class="modal-header">
+			    <button type="button" class="close" data-dismiss="modal">×</button>
+			    <h3>Modal header</h3>
+			  </div>
+			  <div class="modal-body">
+			    <p>One fine body…</p>
+			  </div>
+			  <div class="modal-footer">
+			    <a href="#" class="btn" data-dismiss="modal">Close</a>
+			    <a href="#" class="btn btn-primary">Save changes</a>
+			  </div>
+			</div>
 
 <!-- Start of Left Side Bar>
 <!-- <aside></aside> -->
@@ -47,8 +68,47 @@
     <div class="tab-pane" id="lA">
       <div class="profile">
 				<h3>Welcome</h3>
+				
+			
+				
+	
+				
       	<p><%= @tutor.tutor_welcome %></p>
+
+       <!--   <div class = "google_map span4"> 
+		        <div id="map_canvas" 
+		        data-latitude = '<%= "#{@tutor_zipcode.latitude}" %>'
+		        data-longitude = '<%= "#{@tutor_zipcode.longitude}" %>'></div>
+		      </div>
+		    </div> -->
+<!-- hardcode it in to style it, get rid later -->
+
+	      
+
+
+
+        <h3>Questions & Answers</h3>
+        <p><em>Q: What you gonna do when they come for you?</em></p>
+        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <p><em>Q: What you gonna do when they come for you?</em></p>
+        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <p><em>Q: What you gonna do when they come for you?</em></p>
+        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        
+        <p><em>Q: What you gonna do when they come for you?</em></p>
+        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
+      
+      <div class="reviews">
+	      <h3>Reviews</h3>
+	      
+	      
+
+      </div>
+
+    
       <div class = "google_map span6">
         <div id="map_canvas" 
         data-latitude = '<%= "#{@tutor_zipcode.latitude}" %>'

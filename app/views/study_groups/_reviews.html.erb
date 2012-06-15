@@ -1,6 +1,6 @@
 <ul>
 	<% @tutor.tutor_reviews.each do |review| %>
-	<li><%= review.review_text %></li>    
+  <li><%= review.review_text %></li>    
     <li>Posted by <%= review.student.user.name %></li>    
     <li>on <%= review.created_at %></li><br/>
     <%end%>

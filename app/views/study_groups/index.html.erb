@@ -1,35 +1,127 @@
 <div style="margin-top: 100px">
 </div>
-<table class="table table-bordered", id="study_groups_table">
-  <thead>
-    <td>Class Name</td>
-    <td>Taught By</td>
-    <td>City</td>
-    <td>Zipcode</td>
-    <td>Distance</td>
-    <td>Students</td>
-    <td>Spots Open</td>
-    <td>Cost</td>
-    <td>Register</td>
-  </thead>
+<h2>Search Results for: "Query" </h2>
+<br></br>
 
-  <tbody>
-    <% @study_groups.each do |sg| %>
-      <tr>
-        <td><%= link_to "#{sg.subject.name}", study_group_url(sg) %></td>
-        <td><%= link_to "#{sg.tutor.user.name}", tutor_url(sg.tutor) %></td>
-        <td><%= "#{sg.tutor.user.city}, #{sg.tutor.user.state}" %></td>
-        <td><%= "#{sg.tutor.user.zip}" %></td>
-        <td><%= "#{Zipcode.distance(sg.tutor.user.zipcode, @search_zip ).to_i}" %></td>
-        <td><%= "#{sg.students.count}" %></td>
-        <td><%= "#{sg.student_limit-sg.students.count}" %></td>
-        <td><%= "#{sg.cost_per_hour}" %></td>
-        <% if session[:uid].present? %>
-          <td><%= link_to "button to register", new_study_group_registration_url(:study_group_id => sg.id) %></td>
-        <%else%>
-          <td><%=link_to "Sign In to Register", sign_in_url%></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<!-- Tabbable connent -->
+<div class="tabbable"> 
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab"><i class="icon-user"></i> "Query" Tutor</a></li>
+    <li><a href="#tab2" data-toggle="tab"><i class="icon-folder-open"></i> "Query" Classes</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <table class="table table-striped", id="study_groups_table">
+	   <!-- you've broken the javascript study_groups.js - rem to fix -->
+						
+
+			  <tbody>
+			    <% @study_groups.each do |sg| %>
+			      <tr>
+				      <td><img src="http://placehold.it/85x85" alt="tutor profile pic"></td>
+			        
+			        <td><%= link_to "#{sg.tutor.user.name}", tutor_url(sg.tutor) %></br>
+				          <%= "#{sg.tutor.user.city}, #{sg.tutor.user.state}. #{sg.tutor.user.zip}" %></br>
+				        <!--  <%= link_to "#{sg.subject.name}", study_group_url(sg) %></br> -->
+				      </td>
+			       
+			        
+			        <td>
+				          <%= "£#{sg.cost_per_hour} per hour" %></br>
+				          <%= "#{Zipcode.distance(sg.tutor.user.zipcode, @search_zip ).to_i} km away" %></br>
+				        
+				          <% if session[:uid].present? %>
+					        <%= link_to "button to register", new_study_group_registration_url(:study_group_id =>    sg.id) %></td>
+					        <%else%>
+					          <%= button_to "Sign In to Register", sign_in_url, :method => "get" %>
+					          <!-- <%=link_to "Sign In to Register", sign_in_url%> -->
+					        <% end %>
+				
+				      
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+    </div>
+    <div class="tab-pane" id="tab2">
+			<table class="table table-striped", id="study_groups_table">
+	   <!-- you've broken the javascript study_groups.js - rem to fix -->
+						
+
+			  <tbody>
+			    <% @study_groups.each do |sg| %>
+			      <tr>
+				      <td><img src="http://placehold.it/85x85" alt="tutor profile pic"></td>
+			        
+			        <td class="class-title"><p class="title"><%= link_to "#{sg.subject.name} Lessons", study_group_url(sg) %></p>
+			            <p>taughtby <%= link_to "#{sg.tutor.user.name}", tutor_url(sg.tutor) %></p>
+				          <%= "#{sg.tutor.user.city}, #{sg.tutor.user.state}. #{sg.tutor.user.zip}" %></br>
+				          
+				      </td>
+			       
+			        
+			        <td>
+				          <%= "£#{sg.cost_per_hour} per hour" %></br>
+				          <%= "#{Zipcode.distance(sg.tutor.user.zipcode, @search_zip ).to_i} km away" %></br>
+				        
+				          <% if session[:uid].present? %>
+					        <%= link_to "button to register", new_study_group_registration_url(:study_group_id =>    sg.id) %></td>
+					        <%else%>
+					          <%= button_to "Sign In to Register", sign_in_url, :method => "get" %>
+					          <!-- <%=link_to "Sign In to Register", sign_in_url%> -->
+					        <% end %>
+				
+				      
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="tab-content">
+  <div class="tab-pane active" id="tab1">
+    <table class="table table-bordered", id="study_groups_table">
+						<!--   <thead>
+						    <td>Class Name</td>
+						    <td>Taught By</td>
+						    <td>City</td>
+						    <td>Zipcode</td>
+						    <td>Distance</td>
+						    <td>Students</td>
+						    <td>Spots Open</td>
+						    <td>Cost</td>
+						    <td>Register</td>
+						  </thead> 
+
+		  <tbody>
+		    <% @study_groups.each do |sg| %>
+		      <tr>
+		        <td><%= link_to "#{sg.subject.name}", study_group_url(sg) %></td>
+		        <td><%= link_to "#{sg.tutor.user.name}", tutor_url(sg.tutor) %></td>
+		        <td><%= "#{sg.tutor.user.city}, #{sg.tutor.user.state}" %></td>
+		        <td><%= "#{sg.tutor.user.zip}" %></td>
+		        <td><%= "#{Zipcode.distance(sg.tutor.user.zipcode, @search_zip ).to_i}" %></td>
+		        <td><%= "#{sg.students.count}" %></td>
+		        <td><%= "#{sg.student_limit-sg.students.count}" %></td>
+		        <td><%= "#{sg.cost_per_hour}" %></td>
+		        <% if session[:uid].present? %>
+		          <td><%= link_to "button to register", new_study_group_registration_url(:study_group_id =>    sg.id) %></td>
+		        <%else%>
+		          <td><%=link_to "Sign In to Register", sign_in_url%></td>
+		        <% end %>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+  </div>
+  <div class="tab-pane" id="tab2">
+    <p>Howdy, I'm in Section 2.</p>
+  </div>
+</div>
+</div> -->
+
