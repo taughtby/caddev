@@ -22,10 +22,16 @@ div .hero-unit{
 		
 }
 
-body {
+.pages {
 	background:url('/assets/bg_city.jpg') no-repeat center center fixed; 
 	background-size:cover;
 }
+.tutors {
+	//background:url('/assets/profile_long.jpg') no-repeat center center fixed; 
+	background:url('/assets/karate_background.png') no-repeat center center fixed;
+	background-size:cover;
+}
+
 /*html {
 		background: url(images/bg_cit.jpg) no-repeat center center fixed;
 		-webkit-background-size: cover;

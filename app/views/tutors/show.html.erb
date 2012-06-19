@@ -4,174 +4,58 @@
 			  <div class="row">
 			    <div class="span12">
 				    <header>
-			      <div class="row">
-			      	<div class="span6">
-				        <img src="http://placehold.it/75x75" alt="tutor profile pic">
-				        <h1>Football Lessons</h1> <!-- Dynamic what exactly are you going to call this -->
-				        <p class="tutor-name"><a href="http://localhost:3000">taughtby</a> <%= @tutor.user.name %><p>
-					        <div class="share">
-						        <p>share:</p>
-										<img src="http://placehold.it/15x15" alt="facebook">
-										<img src="http://placehold.it/15x15" alt="twitter">
-										<img src="http://placehold.it/15x15" alt="email">
-						      </div>
-				      </div>
-				      <div class="fuck-off">
-			      		<div class="span4 offset2">	 
-								<a href="#"><i class="icon-envelope icon-white"></i>Contact Me</a>
-								<p class="contact-details"><%= render 'users/contact_info', :user => @tutor.user %></p>
-								<a class="btn" data-toggle="modal" href="#myModal" >Launch Modal</a>
-					      </div>
-			     </div>
-			    </header>
-			  </div>
+			        <div class="row">
+  			      	<div class="span6">
+  				        <%#= image_tag "/assets/miyagi_profile.jpg", :size => "75x75" %>
+  				        <%= image_tag "http://graph.facebook.com/#{Random.rand(10000)}/picture", :size => "75x75" %>
+  				        <h1><%= @tutor.study_groups.first.subject.name %> Lessons</h1> <!-- Dynamic what exactly are you going to call this -->
+  				        <!-- ><p class="tutor-name"><a href="http://localhost:3000">taughtby</a> <%= @tutor.user.name %><p> -->
+  				        <p class="tutor-name"><a href="http://localhost:3000">taughtby</a> <%= @tutor.user.name %><p>
+  					      <div class="share">
+  						      <p>share:</p>
+  									<img src="http://placehold.it/15x15" alt="facebook">
+  									<img src="http://placehold.it/15x15" alt="twitter">
+  									<img src="http://placehold.it/15x15" alt="email">
+  						    </div>
+  				      </div> <!-- <div class="span6"> -->
+  				      <div class="fuck-off">
+  			      		<div class="span4 offset2">	 
+  								  <a href="#"><i class="icon-envelope icon-white"></i>Contact Me</a>
+    								<p class="contact-details"><%= render 'users/contact_info', :user => @tutor.user %></p>
+  					      </div>
+  			        </div> <!-- <div class="fuck-off"> -->
+  			      </div> <!-- <div class="row"> -->
+			      </header>
+			    </div> <!-- <div class="span12"> -->
+			  </div> <!-- row -->
 			</div> <!-- end of container_tutor> -->
 	
- 
-			<div class="modal hide" id="myModal">
-			  <div class="modal-header">
-			    <button type="button" class="close" data-dismiss="modal">×</button>
-			    <h3>Modal header</h3>
-			  </div>
-			  <div class="modal-body">
-			    <p>One fine body…</p>
-			  </div>
-			  <div class="modal-footer">
-			    <a href="#" class="btn" data-dismiss="modal">Close</a>
-			    <a href="#" class="btn btn-primary">Save changes</a>
-			  </div>
-			</div>
+    <div class="tabbable tabs-left">
+      <ul class="nav nav-tabs" id="myTab">
+        <li><a href="#lA" data-toggle="tab">Profile</a></li>
+        <li><a href="#lB" data-toggle="tab">Syllabus</a></li>
+        <li><a href="#lE" data-toggle="tab">Reviews</a></li>
+        <li><a href="#lC" data-toggle="tab">Students</a></li>
+        <li><a href="#lD" data-toggle="tab">Calendar</a></li>
+      </ul>
 
-<!-- Start of Left Side Bar>
-<!-- <aside></aside> -->
+      <div class="tab-content">
+        <div class="tab-pane" id="lA">
+          <%= render 'profile' %>
+    		</div> <!-- end of id="lA" -->
+        <div class="tab-pane" id="lB">  
+          <%= render 'syllabus' %>
+    		</div> <!-- end of id="lB" -->
+        <div class="tab-pane" id="lC">
+          <%= render 'students'%>
+          <!-- <%#= render 'study_groups/students'%> -->
+        </div> <!-- end of id="lE" -->
+        <div class="tab-pane" id="lD">
+           <div class='calendar' data-id = '<%="#{@tutor.id}"%>' ></div>
+        </div> <!-- end of id="lF" -->
+      </div> <!-- end of tab-content -->
+    </div> <!-- end of tabbable tabs-left -->
 
-
-			<div class="tabbable tabs-left">
-			  <ul class="nav nav-tabs" id="myTab">
-			    <li><a href="#lA" data-toggle="tab">Profile</a></li>
-			    <li><a href="#lB" data-toggle="tab">Classes</a></li>
-			    <li><a href="#lC" data-toggle="tab">Reviews</a></li>
-			    <li><a href="#lD" data-toggle="tab">FAQs</a></li>
-			    <li><a href="#lE" data-toggle="tab">Current Students</a></li>
-			    <li><a href="#lF" data-toggle="tab">Calendar</a></li>
-			  </ul>
-
-  <div class="tab-content">
-    <div class="tab-pane" id="lA">
-      <div class="profile">
-				<h3>Welcome</h3>
-				
-			
-				
-	
-				
-      	<p><%= @tutor.tutor_welcome %></p>
-
-       <!--   <div class = "google_map span4"> 
-		        <div id="map_canvas" 
-		        data-latitude = '<%= "#{@tutor_zipcode.latitude}" %>'
-		        data-longitude = '<%= "#{@tutor_zipcode.longitude}" %>'></div>
-		      </div>
-		    </div> -->
-<!-- hardcode it in to style it, get rid later -->
-
-	      
-
-
-
-        <h3>Questions & Answers</h3>
-        <p><em>Q: What you gonna do when they come for you?</em></p>
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <p><em>Q: What you gonna do when they come for you?</em></p>
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <p><em>Q: What you gonna do when they come for you?</em></p>
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        
-        <p><em>Q: What you gonna do when they come for you?</em></p>
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-      
-      <div class="reviews">
-	      <h3>Reviews</h3>
-	      
-	      
-
-      </div>
-
-    
-      <div class = "google_map span6">
-        <div id="map_canvas" 
-        data-latitude = '<%= "#{@tutor_zipcode.latitude}" %>'
-        data-longitude = '<%= "#{@tutor_zipcode.longitude}" %>'></div>
-      </div>
-    </div>
-   
-    <div class="tab-pane" id="lB">  
-       <% if session[:uid].present? %>
-
-         <table class="table table-bordered", id="study_groups_table">
-           <thead>
-             <td>Class Name</td>
-             <td>Taught By</td>
-             <td>Students</td>
-             <td>Spots Open</td>
-             <td>Cost</td>
-             <td>Register</td>
-           </thead>
-
-           <tbody>
-             <% @study_groups.each do |sg| %>
-               <tr>
-                 <td><%= link_to "#{sg.subject.name}", study_group_url(sg) %></td>
-                 <td><%= link_to "#{sg.tutor.user.name}", tutor_url(sg.tutor) %></td>
-                 <td><%= "#{sg.students.count}" %></td>
-                 <td><%= "#{sg.student_limit-sg.students.count}" %></td>
-                 <td><%= "#{sg.cost_per_hour}" %></td>
-                 <% if session[:uid].present? %>
-                   <td><%= link_to "Register Now!", new_study_group_registration_url(:study_group_id => sg.id) %></td>
-                 <%else%>
-                   <td><%=link_to "Sign In to Register", sign_in_url%></td>
-                 <% end %>
-               </tr>
-             <% end %>
-           </tbody>
-         </table> 
-  
-        <%else%>
-        
-        <div id="sg">
-         <% @study_groups.each do |sg| %>
-         <%= link_to "#{sg.subject.name}", study_group_url(sg) %>
-         </div>
-         <div id="newpost">
-      	 <p><%= link_to "New post", new_study_group_study_group_post_path(sg.id), :remote => true %></p>
-      	<% end %>
-      
-      	</div>
-      	
-        <% end %>
-    </div>
-    <div class="tab-pane" id="lC" class="reviews">
-      <%= render 'study_groups/reviews'%>
-    </div>
-    <div class="tab-pane" id="lD">
-       <%= render 'study_groups/faqs'%>
-    </div>
-    <div class="tab-pane" id="lE">
-       <%= render 'study_groups/students'%>
-    </div>
-    <div class="tab-pane" id="lF">
-       <div class='calendar' data-id = '<%="#{@tutor.id}"%>' ></div>
-    </div>
-    </div>
-  </div>
-</div> <!-- end of tabbable tabs-left -->
-			
-	
-			
-			
   </div> <!-- end of opaque background -->
 </div> <!-- end of container -->
  	

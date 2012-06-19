@@ -17,7 +17,7 @@
 <%= render 'layouts/header' unless (controller.controller_name == "tutors") && (controller.action_name == "show") %>
 
 <!-- trying to set different background images for home page and tutor_show -->
-<body class="<%= @home_page ? 'homepage' : ''%>">
+<body class="<%= params[:controller] %>">
 	<div class="container">
     <%= yield %>
 	</div>
